@@ -4,7 +4,7 @@ title: Yanhao Wiki
 ---
 
 # About this Wiki
-This is my personal Wiki, about some useful notes of mine.
+This is my personal Wiki, contains some useful notes of mine.
 
 Most of them are about Computer Science.
 
