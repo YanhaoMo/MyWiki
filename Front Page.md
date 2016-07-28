@@ -1,6 +1,6 @@
 ---
 format: Markdown
-tile: Yanhao Wiki
+title: Yanhao Wiki
 ---
 
 # About this Wiki
