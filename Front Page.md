@@ -2,4 +2,4 @@
 format: Markdown
 ---
 
-## Contents
+# Contents
