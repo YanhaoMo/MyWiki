@@ -3,17 +3,17 @@
 
 这样做的原因仅仅是为了在虚拟机中进行测试，不影响外部网络。
 
-## 准备
+# 准备
 清单：
 
 - 一台服务器：做faiserver使用
 - 外部网络访问，或者有配置好的内部软件源
 - 知道所有需要安装的机器的MAC地址
 
-## 安装一个新的系统
+# 安装一个新的系统
 主机名localhost或者留空，创建一个普通用户fai用来记录安装日志，最小化安装。
 
-## 配置新系统
+# 配置新系统
 修改源列表：
 ```
 deb-src http://10.1.10.21/server-release kui main non-free contrib
@@ -40,7 +40,7 @@ iface eth0 inet static
 ```
 # systemctl restart networking
 ```
-## 安装fai
+# 安装fai
 首先需要在faiserver上安装fai：
 ```
 # wget -O - http://fai-project.org/download/074BCDE4.asc | apt-key add -
@@ -78,12 +78,12 @@ LOGUSER=fai
 ```
 # ln -sv sid /usr/share/debootstrap/scripts/kui
 ```
-## 构建faiserver基本系统
+# 构建faiserver基本系统
 通过执行以下命令：
 ```
 # fai-setup -v
 ```
-## 配置dhcp、nfs和tftp
+# 配置dhcp、nfs和tftp
 配置dhcp，修改 `/etc/dhcp/dhcpd.conf` 文件
 ```
 INTERFACES="eth1";
@@ -124,7 +124,7 @@ host demo {hardware ethernet 08:00:27:f5:00:6b;fixed-address demo;}
 ```
 192.168.0.2 demo
 ```
-## 配置 config space
+# 配置 config space
 `config space`是用来对系统安装过程进行控制的，他的配置文件比较复杂
 
 首先复制默认的配置文件到 `config space` 
@@ -152,7 +152,7 @@ iptables -t security -X
 sysctl -w net.ipv4.ip_forward=1  
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 ```
-## 测试安装
+# 测试安装
 接下来，只需要重新添加一台vbox虚拟机，虚拟机网络设置为内部网络，网卡mac地址设置为`08:00:27:f5:00:6b`，然后启动虚拟机，就可以开始自动化安装了。
 注意，这个虚拟机的硬盘分配的大一些（20+G），不然使用fai默认的磁盘分区表设置来安装系统可能会出问题（磁盘空间不足）。」
 
@@ -170,7 +170,7 @@ $ mac.py
 
 `mac.list`中保存的即为收集到的所有机器的mac地址。
 
-## `mac.py` 源代码
+# `mac.py` 源代码
 ```
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -185,7 +185,7 @@ for mac in mac_set:
     with open("mac.list", "a") as f:
         f.write(mac + "\n")
 ```
-## 配置硬盘
+# 配置硬盘
 
 本文主要介绍如何编写 `disk_config` 下的磁盘配置文件，这个目录下面的文件会在系统自动安装过程中按照一定的规则被读取，然后根据其中的配置划分相应的硬盘分区。
 下面是一个disk配置文件的例子：
