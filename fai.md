@@ -1,3 +1,7 @@
+---
+categories: Server Configuration
+---
+
 #fai
 以下步骤在vbox上测试成功，其中fai服务器要分配两个网卡。一个用于连接外网（eth0），选用桥接方式联网；另一个用于fai使用（eth1），配置为vbox内部网络。
 
