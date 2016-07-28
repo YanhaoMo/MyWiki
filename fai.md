@@ -1,5 +1,5 @@
 ---
-categories: Server Configuration
+categories: 'Server Configuration'
 ---
 
 #fai
