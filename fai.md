@@ -171,7 +171,7 @@ $ mac.py
 `mac.list`中保存的即为收集到的所有机器的mac地址。
 
 # `mac.py` 源代码
-```
+```python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
