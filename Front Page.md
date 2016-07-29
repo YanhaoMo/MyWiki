@@ -16,5 +16,8 @@ Don't try to sign up, you will never succeed.
 # Performance
 * [Performance]()
 
+# Packaging
+* [Debian packaging]()
+
 # dotfiles
 * [dotfiles]()
