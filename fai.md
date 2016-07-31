@@ -42,7 +42,7 @@ iface eth0 inet static
 ```
 # 安装fai
 首先需要在faiserver上安装fai：
-```bash
+```nohighlight
 # wget -O - http://fai-project.org/download/074BCDE4.asc | apt-key add -
 # echo "deb http://fai-project.org/download jessie koeln" > /etc/apt/sources.list.d/fai.list
 # apt update && apt -y install fai-quickstart
