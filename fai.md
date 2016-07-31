@@ -42,10 +42,10 @@ iface eth0 inet static
 ```
 # 安装fai
 首先需要在faiserver上安装fai：
-```no
-# wget -O - http://fai-project.org/download/074BCDE4.asc | apt-key add -
-# echo "deb http://fai-project.org/download jessie koeln" > /etc/apt/sources.list.d/fai.list
-# apt update && apt -y install fai-quickstart
+```bash
+sudo wget -O - http://fai-project.org/download/074BCDE4.asc | apt-key add -
+sudo echo "deb http://fai-project.org/download jessie koeln" > /etc/apt/sources.list.d/fai.list
+sudo apt update && apt -y install fai-quickstart
 ```
 上面的命令不止会安装fai相关软件，同时还会安装nfs，tftp，dhcp相关的包。
 
