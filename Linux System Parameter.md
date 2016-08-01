@@ -92,11 +92,11 @@ vm.dirty\_bytes的最小合法值是两个页面的大小（以byte为单位）�
 
 # TCP相关参数
 
-## net.ipv4.tcp_window_scaling
+## net.ipv4.tcp\_window\_scaling
 
 设置为1使能tcp窗口缩放（在RFC1323文档中定义），在最初的tcp标准中，接收窗口用16位二进制书来表示，这相当于限制了接收窗口的最大值为2^16^，这个限制会使得网络无法达到最优性能。开启该项可以把接收窗口的限制由2^16^提升到1G字节，有利于提高网络性能。
 
-## net.ipv4.tcp_slow_start_after_idle
+## net.ipv4.tcp\_slow\_start\_after\_idle
 
 如果使能这个参数，那么系统会在tcp连接在空闲一定时间之后重置连接的拥塞窗口（RFC2861），这样做的原因是在连接空闲一定时间之后，网络状态可能发生系统无法预料的改变。如果不设置这个参数，系统便不会在空闲一定时间之后重置拥塞窗口。
 
@@ -123,32 +123,36 @@ tcp快速打开可以使tcp连接在第一次握手的时候就开始发送数�
 系统在任意时刻最多可以存在的处于`TIME-WAIT`状态下的连接数量。当系统中的该状态的连接数超过这个值时，`TIME-WAIT`连接（是超出数量的连接还是所有连接？）会被立即删除并打印警告信息。
 这个参数可以用来防范一些简单的Dos攻击，建议不要减小这参数的值。
 
-## net.ipv4.tcp_fin_timeout
+## net.ipv4.tcp\_fin\_timeout
 
 这个参数设置的是TCP `FIN_WAIT_2`的值。（需要更多解释）
 
-## net.ipv4.tcp_keepalive_time
+## net.ipv4.tcp\_keepalive\_time
 
 当开启 keepalive 连接时，TCP每次持续多久后发送 keepalive 消息。默认是两个小时。
 
-## net.ipv4.tcp_keepalive_probes
+## net.ipv4.tcp\_keepalive\_probes
 
 当系统发送多少次 keepalive 消息而没有收到回复，此时认为该连接已失效。
 默认值为：9 ，也就是说，9个 keepalive 消息没有得到回应，服务器认为这个连接已经失效，将关闭这个连接。
 
-## net.ipv4.tcp_keepalive_intvl
+## net.ipv4.tcp\_keepalive\_intvl
 
 系统重新发送 keepalive 消息的时间间隔，默认为 75 s，也就是说：当过了 `9 x 75s ～ 11m` 之后，系统关闭这个没有回应的tcp连接。
 
-## net.ipv4.tcp_low_latency
+## net.ipv4.tcp\_low\_latency
 
 当启用这个参数时，内核启用prequeue[^4]，这可以使系统在延迟上有更好的表现，但是可能对网络吞吐量有不利影响。
 
-## net.ipv4.tcp_max_orphans
+## net.ipv4.tcp\_max\_orphans
 
 系统中没有连接到任何一个用户文件句柄的socket连接的总数上限。当系统的此类socket总数达到这个上限时，超过的 orphans socket 会被立刻重置并显示警告信息。这个限制可以用来
 抵御简单的Dos攻击，在设置这个值时，不要降低这个参数的值。在调整这个值的时候请牢记：每个 orphans socket 会消耗大约 64k 的不可置换到swap区的内存，所以，请根据你的
 系统内存大小酌情调整。
+
+## net.ipv4.tcp\_max\_syn_backlog
+
+还未获得对端ACK回应的socket连接在系统中保存的最大数量。在低內存系统中，这个值最小是128，系统负载太高时，可以根据实际的内存大小来适当调高这个值。
 
 ## net.ipv4.tcp_syncookies
 
