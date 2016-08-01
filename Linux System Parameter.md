@@ -106,6 +106,12 @@ vm.dirty\_bytes的最小合法值是两个页面的大小（以byte为单位）�
 
 tcp快速打开可以使tcp连接在第一次握手的时候就开始发送数据，使能此项不利于拥塞控制，但是有利于提高网络性能。
 
+## net.ipv4.tcp_syncookies
+
+只有当内核编译参数`CONFIG_SYN_COOKIES`使能时这个参数才有作用，当这个参数的值为1时，如果SYN等待队列溢出，将使用Cookies来处理。开启这个选项可以用来防范SYN Flood攻击。
+
+默认开启。
+
 ## icmp\_echo\_ignore\_all
 
 当值为非0时内核会无视所有发送来的 ICMP ECHO 消息。
