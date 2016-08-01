@@ -127,6 +127,10 @@ tcp快速打开可以使tcp连接在第一次握手的时候就开始发送数�
 
 这个参数设置的是TCP `FIN_WAIT_2`的值。（需要更多解释）
 
+## net.ipv4.tcp_keepalive_time
+
+当开启 keepalive 连接时，TCP每次持续多久后发送 keepalive 消息。默认是两个小时。
+
 ## net.ipv4.tcp_syncookies
 
 只有当内核编译参数`CONFIG_SYN_COOKIES`使能时这个参数才有作用，当这个参数的值为1时，如果SYN等待队列溢出，将使用Cookies来处理。开启这个选项可以用来防范SYN Flood攻击。
