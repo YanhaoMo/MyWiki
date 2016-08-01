@@ -131,6 +131,15 @@ tcp快速打开可以使tcp连接在第一次握手的时候就开始发送数�
 
 当开启 keepalive 连接时，TCP每次持续多久后发送 keepalive 消息。默认是两个小时。
 
+## net.ipv4.tcp_keepalive_probes
+
+当系统发送多少次 keepalive 消息而没有收到回复，此时认为该连接已失效。
+默认值为：9 ，也就是说，9个 keepalive 消息没有得到回应，服务器认为这个连接已经失效，将关闭这个连接。
+
+## net.ipv4.tcp_keepalive_intvl
+
+系统重新发送 keepalive 消息的时间间隔，默认为 75 s，也就是说：当过了 `9 x 75s ～ 11m` 之后，系统关闭这个没有回应的tcp连接。
+
 ## net.ipv4.tcp_low_latency
 
 当启用这个参数时，内核启用prequeue[^4]，这可以使系统在延迟上有更好的表现，但是可能对网络吞吐量有不利影响。
