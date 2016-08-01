@@ -21,11 +21,11 @@ deb-src http://10.1.10.21/server-release kui-security main non-free contrib
 ```
 更新系统
 ```
-# apt update && apt -y upgrade
+sudo apt update && apt -y upgrade
 ```  
 开启ssh root登陆，注释掉`/etc/ssh/sshd_config`文件中的`PermitRootLogin without-password`一行。然后重启ssh服务
 ```
-# systemctl restart ssh
+sudo systemctl restart ssh
 ```
 修改网络配置`/etc/network/interfaces`，添加如下行，配置eth1网络接口为固定静态ip
 ```
@@ -38,7 +38,7 @@ iface eth0 inet static
 ```
 然后重启网络：
 ```
-# systemctl restart networking
+sudo systemctl restart networking
 ```
 # 安装fai
 首先需要在faiserver上安装fai：
@@ -71,17 +71,17 @@ LOGUSER=fai
 
 安装debian的debootstrap包，目前我们系统的debootstrap包存在bug，所以先暂时使用debian的包来代替：
 ```
-# cd && wget http://mirrors.ustc.edu.cn/debian/pool/main/d/debootstrap/debootstrap_1.0.67_all.deb
-# dpkg -i debootstrap_1.0.67_all.deb
+sudo cd && wget http://mirrors.ustc.edu.cn/debian/pool/main/d/debootstrap/debootstrap_1.0.67_all.deb
+sudo dpkg -i debootstrap_1.0.67_all.deb
 ```
 接下来还需要稍微配置一下debootstrap
 ```
-# ln -sv sid /usr/share/debootstrap/scripts/kui
+sudo ln -sv sid /usr/share/debootstrap/scripts/kui
 ```
 # 构建faiserver基本系统
 通过执行以下命令：
 ```
-# fai-setup -v
+sudo fai-setup -v
 ```
 # 配置dhcp、nfs和tftp
 配置dhcp，修改 `/etc/dhcp/dhcpd.conf` 文件
@@ -108,7 +108,7 @@ host demo {hardware ethernet 08:00:27:f5:00:6b;fixed-address demo;}
 
 重启dhcp服务：
 ```
-# systemctl restart isc-dhcp-server
+sudo systemctl restart isc-dhcp-server
 ```
 修改 `/etc/experts` 配置
 ```
@@ -118,7 +118,7 @@ host demo {hardware ethernet 08:00:27:f5:00:6b;fixed-address demo;}
 ```
 重启nfs服务:
 ```
-# systemctl restart nfs-kernel-server
+sudo systemctl restart nfs-kernel-server
 ```
 修改 `/etc/hosts` 文件加入
 ```
@@ -129,11 +129,11 @@ host demo {hardware ethernet 08:00:27:f5:00:6b;fixed-address demo;}
 
 首先复制默认的配置文件到 `config space` 
 ```
-cp -a /usr/share/doc/fai-doc/examples/simple/* /srv/fai/config/
+sudo cp -a /usr/share/doc/fai-doc/examples/simple/* /srv/fai/config/
 ```
 生成pxe要用的配置文件
 ```
-fai-chboot -IFv -u nfs://192.168.0.1/srv/fai/config demo
+sudo fai-chboot -IFv -u nfs://192.168.0.1/srv/fai/config demo
 ```
 配置faiserver的路由功能，将以下内容保存成脚本并执行，或者手动一条条执行也可以。
 ```
@@ -160,7 +160,7 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 首先启动已经配置好的faiserver，运行以下命令开始进行mac地址的收集：
 ```
-# tcpdump -qtel broadcast and port bootpc > mac.text
+sudo tcpdump -qtel broadcast and port bootpc > mac.text
 ```
 然后设置每一台需要安装系统的机器为网络启动，一段时间之后，Ctrl-C kill 掉上面的进程。接着执行以下命令：
 ```
