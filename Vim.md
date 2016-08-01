@@ -1,5 +1,5 @@
 # .vimrc
-```
+```vim
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -67,7 +67,7 @@ filetype plugin indent on
 source ~/.vim/config
 ```
 # .vim/config
-```
+```vim
 "gvim配置
 if has("gui_running")
     let $LANG='en'                                              "设置gvim菜单栏始终显示为英文
