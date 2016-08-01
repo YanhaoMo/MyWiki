@@ -144,6 +144,10 @@ tcp快速打开可以使tcp连接在第一次握手的时候就开始发送数�
 
 当启用这个参数时，内核启用prequeue[^4]，这可以使系统在延迟上有更好的表现，但是可能对网络吞吐量有不利影响。
 
+## net.ipv4.tcp_max_orphans
+
+系统中没有连接到任何一个用户文件句柄的socket连接的总数上限。
+
 ## net.ipv4.tcp_syncookies
 
 只有当内核编译参数`CONFIG_SYN_COOKIES`使能时这个参数才有作用，当这个参数的值为1时，如果SYN等待队列溢出，将使用Cookies来处理。开启这个选项可以用来防范SYN Flood攻击。
