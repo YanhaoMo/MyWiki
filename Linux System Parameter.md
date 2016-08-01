@@ -1,4 +1,4 @@
-# 虚拟内存相关的参数（vm开头）
+# 虚拟内存相关的参数（vm开头）[^1]
 
 ## vm.page-cluster
 
@@ -53,7 +53,7 @@ vm.dirty\_bytes的最小合法值是两个页面的大小（以byte为单位）�
 
 ## bpf\_jit\_enable
 
-这个参数用来开启或者关闭 Berkeley Packet Filter[^1]
+这个参数用来开启或者关闭 Berkeley Packet Filter[^2]
 在当前对x86\_64的支持上，bpf\_jit提供了一个加速包过滤的框架，tcpdump/libpcap
 就使用了这个功能。
 
@@ -154,4 +154,5 @@ TIMESTAMP 请求。
 
 # 参考链接
 
-[^1]: [<https://en.wikipedia.org/wiki/Berkeley_Packet_Filter>](https://en.wikipedia.org/wiki/Berkeley_Packet_Filter)
+[^1]: [<https://www.kernel.org/doc/Documentation/sysctl/>](https://www.kernel.org/doc/Documentation/sysctl/)
+[^2]: [<https://en.wikipedia.org/wiki/Berkeley_Packet_Filter>](https://en.wikipedia.org/wiki/Berkeley_Packet_Filter)
