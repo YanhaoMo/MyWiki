@@ -108,7 +108,7 @@ tcp快速打开可以使tcp连接在第一次握手的时候就开始发送数�
 
 ## net.ipv4.tcp\_tw\_reuse
 
-开启此项允许将`TIME-WAIT`状态的socket用于新的tcp连接，被用于新连接的`TIME-WAIT`状态的socket从协议的角度看是安全的。
+开启此项允许将`TIME-WAIT`状态的socket用于新的tcp连接，当然复用的前提是“从协议角度来看，这个复用是安全的”。
 
 ## net.ipv4.tcp_syncookies
 
