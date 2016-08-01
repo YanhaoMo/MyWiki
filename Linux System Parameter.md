@@ -154,5 +154,5 @@ TIMESTAMP 请求。
 
 # 参考链接
 
-[^1]: [<https://www.kernel.org/doc/Documentation/sysctl/>](https://www.kernel.org/doc/Documentation/sysctl/)
-[^2]: [<https://en.wikipedia.org/wiki/Berkeley_Packet_Filter>](https://en.wikipedia.org/wiki/Berkeley_Packet_Filter)
+[^1]: [https://www.kernel.org/doc/Documentation/sysctl/](https://www.kernel.org/doc/Documentation/sysctl/)
+[^2]: [https://en.wikipedia.org/wiki/Berkeley_Packet_Filter](https://en.wikipedia.org/wiki/Berkeley_Packet_Filter)
