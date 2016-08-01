@@ -114,6 +114,10 @@ tcp快速打开可以使tcp连接在第一次握手的时候就开始发送数�
 
 允许快速回收处于`TIME-WAIT`状态下的socket。在NAT（网络地址转换）环境中开启这个参数是非常危险的。
 
+## net.ipv4.tcp_timestamps
+
+系统在发包时加入时间戳。这个功能在`RFC1323`文档中有详细描述[^3]。
+
 ## net.ipv4.tcp_syncookies
 
 只有当内核编译参数`CONFIG_SYN_COOKIES`使能时这个参数才有作用，当这个参数的值为1时，如果SYN等待队列溢出，将使用Cookies来处理。开启这个选项可以用来防范SYN Flood攻击。
@@ -170,3 +174,4 @@ TIMESTAMP 请求。
 
 [^1]: [https://www.kernel.org/doc/Documentation/sysctl/](https://www.kernel.org/doc/Documentation/sysctl/)
 [^2]: [https://en.wikipedia.org/wiki/Berkeley_Packet_Filter](https://en.wikipedia.org/wiki/Berkeley_Packet_Filter)
+[^3]: [https://www.ietf.org/rfc/rfc1323.txt](https://www.ietf.org/rfc/rfc1323.txt)
