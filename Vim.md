@@ -1,4 +1,5 @@
 # .vimrc
+
 ```vim
 set nocompatible
 filetype off
@@ -66,7 +67,9 @@ filetype plugin indent on
 
 source ~/.vim/config
 ```
+
 # .vim/config
+
 ``` vim
 "gvim配置
 if has("gui_running")
