@@ -131,6 +131,10 @@ tcp快速打开可以使tcp连接在第一次握手的时候就开始发送数�
 
 当开启 keepalive 连接时，TCP每次持续多久后发送 keepalive 消息。默认是两个小时。
 
+## net.ipv4.tcp_low_latency
+
+当启用这个参数时，内核启用prequeue[^4]，这可以使系统在延迟上有更好的表现，但是可能对网络吞吐量有不利影响。
+
 ## net.ipv4.tcp_syncookies
 
 只有当内核编译参数`CONFIG_SYN_COOKIES`使能时这个参数才有作用，当这个参数的值为1时，如果SYN等待队列溢出，将使用Cookies来处理。开启这个选项可以用来防范SYN Flood攻击。
@@ -188,3 +192,4 @@ TIMESTAMP 请求。
 [^1]: [https://www.kernel.org/doc/Documentation/sysctl/](https://www.kernel.org/doc/Documentation/sysctl/)
 [^2]: [https://en.wikipedia.org/wiki/Berkeley_Packet_Filter](https://en.wikipedia.org/wiki/Berkeley_Packet_Filter)
 [^3]: [https://www.ietf.org/rfc/rfc1323.txt](https://www.ietf.org/rfc/rfc1323.txt)
+[^4]: [http://www.linuxvox.com/2009/11/what-is-the-linux-kernel-parameter-tcp_low_latency/](http://www.linuxvox.com/2009/11/what-is-the-linux-kernel-parameter-tcp_low_latency/)
