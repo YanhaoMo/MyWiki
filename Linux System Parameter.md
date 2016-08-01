@@ -110,6 +110,10 @@ tcp快速打开可以使tcp连接在第一次握手的时候就开始发送数�
 
 开启此项允许将`TIME-WAIT`状态的socket用于新的tcp连接，当然复用的前提是“从协议角度来看，这个复用是安全的”。
 
+## net.ipv4.tcp\_tw\_recycle
+
+允许快速回收处于`TIME-WAIT`状态下的socket。
+
 ## net.ipv4.tcp_syncookies
 
 只有当内核编译参数`CONFIG_SYN_COOKIES`使能时这个参数才有作用，当这个参数的值为1时，如果SYN等待队列溢出，将使用Cookies来处理。开启这个选项可以用来防范SYN Flood攻击。
