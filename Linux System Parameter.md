@@ -112,7 +112,7 @@ tcp快速打开可以使tcp连接在第一次握手的时候就开始发送数�
 
 ## net.ipv4.tcp\_tw\_recycle
 
-允许快速回收处于`TIME-WAIT`状态下的socket。
+允许快速回收处于`TIME-WAIT`状态下的socket。在NAT（网络地址转换）环境中开启这个参数是非常危险的。
 
 ## net.ipv4.tcp_syncookies
 
