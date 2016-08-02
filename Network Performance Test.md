@@ -55,7 +55,7 @@ sudo netperf -4 -H hostname|ip -p 12345 -l 100 -t TCP_STREAM
 * 单个TCP连接多个连续请求和响应时的最大网络吞吐量。
 * 系统建立&关闭一个tcp连接所有的时间。
 
-
+**注意** `netperf`对并发请求的支持很不好，不建议使用netperf来测试网络并发性能。
 
 ## iperf[^2]
 
