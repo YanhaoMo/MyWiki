@@ -78,7 +78,12 @@ sudo iperf -c hostname|ip -p 12345 -t 120 -P 1000 -i 1
 `-c`表示以客户端方式运行，后面跟着服务器的hostname或者ip地址，`-p`表示服务器端的端口号，`-t`表示测试总共运行时间，`-P`表示并发请求数量。
 `-i`指定每隔多长时间报告测试结果。
 
+## tcpkali[^3]
+
+tcpkali是一种可以模拟数百万tcp请求的工具，也可以作为一种ddos工具。
+
 # 参考连接
 
 [^1]: [http://www.netperf.org/netperf/](http://www.netperf.org/netperf/)
 [^2]: [https://iperf.fr/](https://iperf.fr/)
+[^3]: [https://github.com/machinezone/tcpkali](https://github.com/machinezone/tcpkali)
