@@ -10,6 +10,15 @@
 # 可用工具及相关用法
 ## netperf[^1]
 
+netperf 以 C/S 模式来工作，需要在被测试的系统上用`netserver`启动服务器端，然后在客户端使用netperf来对其进行性能测试。
+
+启动`netserver`：
+```bash
+sudo netserver -4 -p 12345
+```
+
+`-4`表示使用`ipv4`协议，`-p 12345`表示在`12345`端口上监听请求。
+
 ## iperf[^2]
 
 # 参考连接
