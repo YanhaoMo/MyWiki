@@ -4,7 +4,7 @@
 
 ## fio[^1]
 
-## Iozone[2^]
+## Iozone[^2]
 
 # 参考链接
 [^1]: [https://github.com/axboe/fio](https://github.com/axboe/fio)
