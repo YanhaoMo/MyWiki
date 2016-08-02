@@ -72,10 +72,11 @@ sudo iperf -s -p 12345 -D
 客户端启动测试程序：
 
 ```bash
-sudo iperf -c hostname|ip -p 12345 -t 120 -P 1000
+sudo iperf -c hostname|ip -p 12345 -t 120 -P 1000 -i 1
 ```
 
 `-c`表示以客户端方式运行，后面跟着服务器的hostname或者ip地址，`-p`表示服务器端的端口号，`-t`表示测试总共运行时间，`-P`表示并发请求数量。
+`-i`指定每隔多长时间报告测试结果。
 
 # 参考连接
 
