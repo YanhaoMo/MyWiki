@@ -51,9 +51,9 @@ sudo netperf -4 -H hostname|ip -p 12345 -l 100 -t TCP_STREAM
 * REM_CPU
 
 ### 利用 `netperf` 可以得到的测试信息
-* 单个长TCP连接的最大网络吞吐量。
-* 单个TCP连接多个连续请求和响应时的最大网络吞吐量。
-* 系统建立&关闭一个tcp连接所有的时间。
+* 单个长TCP连接的最大网络吞吐量。（TCP_STREAM）
+* 单个TCP连接多个连续请求和响应时的最大网络吞吐量。（TCP_RR）
+* 系统建立&关闭一个tcp连接所有的时间。（TCP_CC）
 
 **注意** `netperf`对并发请求的支持很不好，不建议使用netperf来测试网络并发性能。
 
