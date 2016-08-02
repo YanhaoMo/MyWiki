@@ -69,7 +69,7 @@ LOGUSER=fai
 
 设置新系统的密码：
 
-安装debian的debootstrap包，目前我们系统的debootstrap包存在bug，所以先暂时使用debian的包来代替：
+安装debian的debootstrap包，目前 Deepin 系统的debootstrap包存在bug，所以先暂时使用debian的包来代替：
 ```bash
 sudo cd && wget http://mirrors.ustc.edu.cn/debian/pool/main/d/debootstrap/debootstrap_1.0.67_all.deb
 sudo dpkg -i debootstrap_1.0.67_all.deb
