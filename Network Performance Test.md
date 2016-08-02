@@ -59,6 +59,24 @@ sudo netperf -4 -H hostname|ip -p 12345 -l 100 -t TCP_STREAM
 
 ## iperf[^2]
 
+iperf 是一款可以用来测试网络（TCP或UDP）最大吞吐量的工具，可以进行并行测试，iperf也工作在C/S模式。
+
+iperf启动服务器端：
+
+```bash
+sudo iperf -s -p 12345 -D
+```
+
+`-s`表示启动服务器程序，`-p`指定在特定端口监听请求，`-D`表示以守护进程方式运行。
+
+客户端启动测试程序：
+
+```bash
+sudo iperf -c hostname|ip -p 12345 -t 120 -P 1000
+```
+
+`-c`表示以客户端方式运行，后面跟着服务器的hostname或者ip地址，`-p`表示服务器端的端口号，`-t`表示测试总共运行时间，`-P`表示并发请求数量。
+
 # 参考连接
 
 [^1]: [http://www.netperf.org/netperf/](http://www.netperf.org/netperf/)
