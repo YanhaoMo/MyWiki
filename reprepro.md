@@ -53,7 +53,10 @@ basedir /var/www/repos/apt/debian
 ask-passphrase
 ```
 
-# (Optional) useing prepackaged package form other mirror
+# (Optional) useing package form other mirror
+this can be down by reprepro using `overrides`.
+
+For example, if you want to use package for debian's official repository.
 
 # Links
 [^1]: [https://mirrorer.alioth.debian.org/](https://mirrorer.alioth.debian.org/)
