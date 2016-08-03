@@ -25,6 +25,24 @@ then, execute `gpg --gen-key` command and follow the instruction to generate a k
 # Configure reprepro
 Once you have your OpenPGP key ready. You can start configuring reprepro.
 
+First, create the reprepro configration directory.
+
+```bash
+sudo mkdir -p /var/www/repos/apt/debian/conf
+```
+
+then, create the configuratin file. the configration file name is "distrbution", put it into `conf` directory.
+
+```bash
+cat /var/www/repos/apt/debian/conf
+Origin: Your project name
+Label: Your project name
+Codename: <osrelease>
+Architectures: i386 amd64
+Components: main
+Description: Apt repository for project x
+SignWith: <key-id>
+```
 
 # Links
 [^1]: [https://mirrorer.alioth.debian.org/](https://mirrorer.alioth.debian.org/)
