@@ -20,7 +20,7 @@ It should be installed in your system by default. If not, install it manually.
 sudo apt install gunpg
 ```
 
-then, execute `gpg --gen-key` command and follow the instruction to generate a key. You can refer to here[^2] for more information about openGPG.
+Then, execute `gpg --gen-key` command and follow the instruction to generate a key. You can refer to here[^2] for more information about openGPG.
 
 # Configure reprepro
 Once you have your OpenPGP key ready. You can start configuring reprepro.
@@ -31,7 +31,7 @@ First, create the reprepro configration directory.
 sudo mkdir -p /var/www/repos/apt/debian/conf
 ```
 
-then, create the configuratin file. the name of the configration file is "distrbution", put it into `conf` directory.
+Then, create the configuratin file. the name of the configration file is "distrbution", put it into `conf` directory.
 
 ```bash
 cat /var/www/repos/apt/debian/conf
@@ -44,7 +44,7 @@ Description: Apt repository for project x
 SignWith: <key-id>
 ```
 
-third, add the second configuration file named "option" at the same position.
+Third, add the second configuration file named "option" at the same position.
 
 ```bash
 cat /var/www/repos/apt/debian/option
@@ -54,7 +54,7 @@ ask-passphrase
 ```
 
 # (Optional) useing package form other mirror
-this can be down by reprepro using `overrides`.
+This can be done by reprepro using `overrides`.
 
 For example, if you want to use package for debian's official repository.
 
