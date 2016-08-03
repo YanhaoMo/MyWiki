@@ -13,6 +13,12 @@
 * IOPS： 每秒可以进行多少次IO传输。
 
 每次进行IO性能测试之前最好先清空系统的IO缓存以保证测试结果准确。
+关于`Cache`和`Buffers`的区别，这儿[^3]有详细的解释。
+
+### 清空系统中缓存的方法：
+* 清空 buffer `sudo sysctl -w vm.drop_caches=3`
+* 清空 交换分区 `sudo swapoff -a && swapon -a`
+* sync; echo 3 > /proc/sys/vm/drop_caches; swapoff -a && swapon -a
 
 # 可用工具
 
@@ -25,3 +31,4 @@ fio是一个功能强大的io性能测试工具，用它可以模拟多种场景
 # 参考链接
 [^1]: [https://github.com/axboe/fio](https://github.com/axboe/fio)
 [^2]: [http://www.iozone.org/](http://www.iozone.org/)
+[^3]: [http://stackoverflow.com/questions/6345020/linux-memory-buffer-vs-cache](http://stackoverflow.com/questions/6345020/linux-memory-buffer-vs-cache)
