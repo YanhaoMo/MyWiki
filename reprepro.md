@@ -20,5 +20,12 @@ It should be installed in your system by default. If not, install it manually.
 sudo apt install gunpg
 ```
 
+then, execute `gpg --gen-key` command and follow the instruction to generate a key. You can refer to here[^2] for more information about openGPG.
+
+# Configure reprepro
+Once you have your OpenPGP key ready. You can start configuring reprepro.
+
+
 # Links
 [^1]: [https://mirrorer.alioth.debian.org/](https://mirrorer.alioth.debian.org/)
+[^2]: []()
