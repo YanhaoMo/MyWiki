@@ -31,7 +31,7 @@ First, create the reprepro configration directory.
 sudo mkdir -p /var/www/repos/apt/debian/conf
 ```
 
-then, create the configuratin file. the configration file name is "distrbution", put it into `conf` directory.
+then, create the configuratin file. the name of the configration file is "distrbution", put it into `conf` directory.
 
 ```bash
 cat /var/www/repos/apt/debian/conf
@@ -42,6 +42,15 @@ Architectures: i386 amd64
 Components: main
 Description: Apt repository for project x
 SignWith: <key-id>
+```
+
+third, add the second configuration file named "option" at the same position.
+
+```bash
+cat /var/www/repos/apt/debian/option
+verbose
+basedir /var/www/repos/apt/debian
+ask-passphrase
 ```
 
 # Links
