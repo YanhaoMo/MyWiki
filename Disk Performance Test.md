@@ -18,7 +18,7 @@
 ### 清空系统中缓存的方法：
 * 清空 Cache `sync;sync;sync`
 * 清空 交换分区 `sudo swapoff -a && swapon -a`
-* 清空 Buffers `sudo sysctl -w vm.drop_caches=3` 这条命令会清空所有的slab对象和页面缓存。
+* 清空 Buffers `sudo sysctl -w vm.drop_caches=3` 这条命令会清空所有的slab对象和页面缓存。如果只想清空页面缓存，可以传参数`1`。
 
 # 可用工具
 
