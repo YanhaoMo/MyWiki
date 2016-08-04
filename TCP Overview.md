@@ -9,6 +9,7 @@
 
 * 客户端发送`SYN(SEQ=x)`报文给服务器端，进入`SYN_SEND`状态。
 * 服务器端收到SYN报文，回应一个`SYN(SEQ=y)ACK(ACK=x+1)`报文，进入`SYN_RECV`状态。
+* 客户端收到服务器端的SYN报文，回应一个`ACK(ACK=y+1)`报文，进入`Established`状态。
 
 首先，客户端需要向服务器端发一个 SYN 报文，用一个随机的序号。
 
