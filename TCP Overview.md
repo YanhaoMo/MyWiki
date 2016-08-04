@@ -14,6 +14,7 @@
 至此，整个连接建立完成。
 
 下面分析“三次握手”的过程中包含的几种状态：
+
 * SYN_SEND 
 * SYN_RECV
 * ESTABLISHED
