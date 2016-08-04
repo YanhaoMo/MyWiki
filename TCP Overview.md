@@ -15,7 +15,7 @@ net.ipv4.tcp_syn_retries: syn报文的重传次数.(至于重传机制,暂时还
 
 net.ipv4.tcp_max_syn_backlog: 服务器中syn队列的长度.  
 sysctl -w net.ipv4.tcp_syncookies=1 ,　打开syncookie，在syn backlog队列不足的时候，提供一种机制临时将syn链接换出  
-net.ipv4.tcp_synack_retries: synack报文的重传次数.
+net.ipv4.tcp_synack_retries: synack报文的重传次数.(同样地,还未搞清楚重传机制)
 
 
 * 客户端收到服务器端的SYN报文，回应一个`ACK(ACK=y+1)`报文，进入`Established`状态。
