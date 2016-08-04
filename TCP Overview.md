@@ -18,7 +18,6 @@ net.ipv4.tcp_max_syn_backlog: 服务器中syn队列的长度.
 sysctl -w net.ipv4.tcp_syncookies=1 ,　打开syncookie，在syn backlog队列不足的时候，提供一种机制临时将syn链接换出  
 net.ipv4.tcp_synack_retries: synack报文的重传次数.(同样地,还未搞清楚重传机制)
 
-
 * 客户端收到服务器端的SYN报文，回应一个`ACK(ACK=y+1)`报文，进入`Established`状态。
 
 至此，整个连接建立完成。
@@ -66,6 +65,7 @@ net.ipv4.tcp_fin_timeout: 可设定客户端在`FIN_WAIT2`状态下最多持续�
 
 net.ipv4.tcp_tw_recycle: 快速回收`TIME_WAIT`状态下的连接.
 net.ipv4.tcp_tw_reuse: 允许重用`TIME_WAIT`状态下的连接,当然需要该连接是"协议安全的"(关于什么是协议安全,去读源代码)
+tcp\_max\_tw\_buckets: 任意时刻系统中最多允许存在的 `TIME_WAIT`状态的tcp连接.
 
 * 最后，服务端和客户端在双方都得到确认时，再经过一定时间之后,双方状态都变为`CLOSED`,此时连接关闭。
 
