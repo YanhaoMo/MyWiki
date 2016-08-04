@@ -42,21 +42,15 @@ net.ipv4.tcp_synack_retries: synack报文的重传次数.(同样地,还未搞清
 
 tcp_available_congestion_control: 系目前支持的拥塞控制算法列表.  
 tcp_congestion_control: 用来设置当前使用的拥塞控制算法.  
-tcp_allowed_congestion_control: 设置可选的拥塞控制算法列表.
+tcp_allowed_congestion_control: 设置可选的拥塞控制算法列表.  
+net.ipv4.tcp_window_scaling: 开启窗口缩放,以支持更大范围的接收窗口.  
+net.ipv4.tcp_slow_start_after_idle: 关闭慢启动重启.
+
 
 拥塞控制的几个关键参数：
 
 * initcwnd 初始拥塞窗口 
 * ssthresh 慢开始门限
-
-下面的几个变量是用来配置拥塞控制的。
-
-* snd_cwnd          设置拥塞窗口大小
-* snd_ssthresh      慢开始门限
-* snd\_cwnd_cnt
-* snd\_cwnd_clamp
-* snd\_cwnd_stamp
-* snd\_cwnd_used
 
 # 释放连接
 TCP连接的释放也是一个复杂的过程，在这个地方，提升网络性能的关键是如何快速释放一个不再使用的连接，
