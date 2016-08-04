@@ -12,7 +12,7 @@
 
 # Tips
 
-*how to determine whether the system running as virtual guest
+* how to determine whether the system running as virtual guest
 
 ** how to determine whether the system running as kvm guest
 ** how to determine whether the system running as vbox guest
