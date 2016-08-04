@@ -8,7 +8,16 @@
 ### 三次握手
 
 * 客户端发送`SYN(SEQ=x)`报文给服务器端，进入`SYN_SEND`状态。
-* 服务器端收到SYN报文，回应一个`SYN(SEQ=y)ACK(ACK=x+1)`报文，进入`SYN_RECV`状态。
+
+net.ipv4.tcp_syn_retries: syn报文的重传次数.(至于重传机制,暂时还没搞清楚)
+
+* 服务器端收到SYN报文，进入`SYN_RECV`状态，回应一个`SYN(SEQ=y)ACK(ACK=x+1)`报文。
+
+net.ipv4.tcp_max_syn_backlog: 服务器中syn队列的长度.  
+sysctl -w net.ipv4.tcp_syncookies=1 ,　打开syncookie，在syn backlog队列不足的时候，提供一种机制临时将syn链接换出  
+net.ipv4.tcp_synack_retries: synack报文的重传次数.
+
+
 * 客户端收到服务器端的SYN报文，回应一个`ACK(ACK=y+1)`报文，进入`Established`状态。
 
 至此，整个连接建立完成。
