@@ -82,3 +82,5 @@ net.ipv4.tcp_keepalive_time: 如果连接持续这么长时间没有数据传输
 net.ipv4.tcp_keepalive_probes: 当系统发送多少次 keepalive 消息而没有收到回复，此时认为该连接已失效。
 默认值为：9 ，也就是说，9个 keepalive 消息没有得到回应，服务器认为这个连接已经失效，将关闭这个连接。  
 net.ipv4.tcp_keepalive_intvl: 系统重新发送 keepalive 消息的时间间隔，默认为 75 s.  
+
+## SACK 选择重传
