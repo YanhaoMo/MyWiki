@@ -50,6 +50,7 @@ net.ipv4.tcp_slow_start_after_idle: 关闭慢启动重启.
 拥塞控制的几个关键参数：
 
 * initcwnd 初始拥塞窗口 
+设置初始拥塞窗口: `ip route change`  
 * ssthresh 慢开始门限
 
 # 释放连接
