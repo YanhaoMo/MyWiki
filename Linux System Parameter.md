@@ -198,7 +198,7 @@ tcp快速打开可以使tcp连接在第一次握手的时候就开始发送数�
 
 使能`SACK`机制，`SACK`可以使系统只重传真正丢失的数据包，而不用重复重传。
 
-## net.ipv4.tcpdsack
+## net.ipv4.tcp_dsack
 
 对重复数据包的ACK回应，默认使能。
 
