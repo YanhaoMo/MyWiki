@@ -52,6 +52,7 @@ net.ipv4.tcp_slow_start_after_idle: 关闭慢启动重启.
 * initcwnd 初始拥塞窗口 
 设置初始拥塞窗口: `ip route change`  
 * ssthresh 慢开始门限
+* rwnd 接收窗口大小.
 
 # 释放连接
 TCP连接的释放也是一个复杂的过程，在这个地方，提升网络性能的关键是如何快速释放一个不再使用的连接，
