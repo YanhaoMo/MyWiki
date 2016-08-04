@@ -10,7 +10,7 @@
 * 客户端发送`SYN(SEQ=x)`报文给服务器端，进入`SYN_SEND`状态。
 
 net.ipv4.tcp_syn_retries: syn报文的重传次数.(至于重传机制,暂时还没搞清楚)  
-net.ipv4.tcp_fastopen: 开启这个选项可以使tcp在第一个syn包中就开始传送数据.
+net.ipv4.tcp_fastopen: 开启这个选项可以使tcp在第一个syn包中就开始传送数据.(关于这个选项还需要进一步研究:是否需要客户端也开启此选项)
 
 * 服务器端收到SYN报文，进入`SYN_RECV`状态，回应一个`SYN(SEQ=y)ACK(ACK=x+1)`报文。
 
