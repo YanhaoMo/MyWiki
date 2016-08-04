@@ -75,6 +75,6 @@ tcp中还存一些特殊机制来应对各种不同的情况，这些地方的�
 ## KeepAlive
 KeepAlive 是tcp协议中用来检测tcp连接是否仍然处可用状态的机制.
 
-net.ipv4.tcp_keepalive_time:  
+net.ipv4.tcp_keepalive_time: 如果连接持续这么长时间没有数据传输,那么就开始发送检测报文.默认为两个小时,太长了,需要缩小.  
 net.ipv4.tcp_keepalive_probes:  
 net.ipv4.tcp_keepalive_intvl:  
