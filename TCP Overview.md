@@ -63,8 +63,8 @@ net.ipv4.tcp_fin_timeout: 可设定客户端在`FIN_WAIT2`状态下最多持续�
 * 服务端在准备好关闭之前，最后发送给客户端一个`FIN(n)`消息，询问客户端是否准备好关闭了。此时服务器进入`LASK_ACK`状态.
 * 客户端接受到服务端发送的消息后，返回一个确认信息: `ACK(n+1)`,此时客户端进入`TIME_WAIT`状态.
 
-net.ipv4.tcp_tw_recycle: 快速回收`TIME_WAIT`状态下的连接.
-net.ipv4.tcp_tw_reuse: 允许重用`TIME_WAIT`状态下的连接,当然需要该连接是"协议安全的"(关于什么是协议安全,去读源代码)
+net.ipv4.tcp_tw_recycle: 快速回收`TIME_WAIT`状态下的连接.  
+net.ipv4.tcp_tw_reuse: 允许重用`TIME_WAIT`状态下的连接,当然需要该连接是"协议安全的"(关于什么是协议安全,去读源代码)  
 tcp\_max\_tw\_buckets: 任意时刻系统中最多允许存在的 `TIME_WAIT`状态的tcp连接.
 
 * 最后，服务端和客户端在双方都得到确认时，再经过一定时间之后,双方状态都变为`CLOSED`,此时连接关闭。
