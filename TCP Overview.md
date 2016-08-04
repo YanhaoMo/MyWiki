@@ -71,3 +71,10 @@ tcp\_max\_tw\_buckets: 任意时刻系统中最多允许存在的 `TIME_WAIT`状
 
 # 特殊机制
 tcp中还存一些特殊机制来应对各种不同的情况，这些地方的性能问题也是值得考察的。
+
+## KeepAlive
+KeepAlive 是tcp协议中用来检测tcp连接是否仍然处可用状态的机制.
+
+net.ipv4.tcp_keepalive_time:  
+net.ipv4.tcp_keepalive_probes:  
+net.ipv4.tcp_keepalive_intvl:  
