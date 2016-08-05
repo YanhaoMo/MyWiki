@@ -92,3 +92,6 @@ net.ipv4.tcp_keepalive_intvl: 系统重新发送 keepalive 消息的时间间隔
 ## SACK 选择重传
 net.ipv4.tcp_sack: 启用选择重传机制,这个机制可以使系统只重传真正丢失的数据报.  
 net.ipv4.tcp_thin_dsack: 允许发送两个sack数据报
+
+# 其他影响性能的问题
+## 孤儿套接字
