@@ -96,4 +96,5 @@ net.ipv4.tcp_thin_dsack: 允许发送两个sack数据报
 # 其他影响性能的问题
 ## 孤儿套接字
 net.ipv4.tcp_max_orphans: 系统中最大的孤儿套接字数量,在调节时不要降低这个值,需要注意的是,每个孤儿套接字会吃掉约64k内存,
-这个值的初始设置为和`NR_FILE`相等,详见`man tcp`
+这个值的初始设置为和`NR_FILE`相等,详见`man tcp`  
+net.ipv4.tcp_orphan_retries: 当对端变成一个孤儿套接字时重试多少次直到关闭我们的tcp连接.
