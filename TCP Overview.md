@@ -108,3 +108,6 @@ net.ipv4.tcp_rmem:
 net.ipv4.tcp_wmem:  
 net.core.wmem_max:  
 net.core.rmem_max:  
+
+## 其他参数限制
+net.nf_conntrack_max: 系统支持的最大连接数
