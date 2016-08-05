@@ -6,3 +6,4 @@ This is the index page of my Server configurations notes.
 * [reprepro]()
 * [iptables]()
 * [tcpdump]()
+* [mini-buildd]()
