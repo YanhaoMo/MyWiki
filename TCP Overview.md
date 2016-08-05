@@ -14,7 +14,8 @@ net.ipv4.tcp_fastopen: 开启这个选项可以使tcp在第一个syn包中就开
 
 * 服务器端收到SYN报文，进入`SYN_RECV`状态，回应一个`SYN(SEQ=y)ACK(ACK=x+1)`报文。
 
-net.ipv4.tcp_max_syn_backlog: 服务器中syn队列的长度.  
+net.ipv4.tcp_max_syn_backlog: 服务器中syn队列的长度.当`syncookies`使能时,此时并不会有一个合法的最大值,因此这个值会被忽略.
+详见`man listen`  
 sysctl -w net.ipv4.tcp_syncookies=1 ,　打开syncookie，在syn backlog队列不足的时候，提供一种机制临时将syn链接换出  
 net.ipv4.tcp_synack_retries: synack报文的重传次数.(同样地,还未搞清楚重传机制)
 
