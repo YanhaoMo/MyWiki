@@ -112,3 +112,5 @@ net.core.rmem_max:
 ## 其他参数限制
 因为Linux系统中**一切皆是文件**,所以系统中对文件的许多限制也会间接地限制到socket连接.
 net.nf_conntrack_max: 系统支持的最大连接数
+
+# kernel中与网络有关的文件
