@@ -102,10 +102,9 @@ net.ipv4.tcp_max_orphans: 系统中最大的孤儿套接字数量,在调节时�
 这个值的初始设置为和`NR_FILE`相等,详见`man tcp`  
 net.ipv4.tcp_orphan_retries: 当对端变成一个孤儿套接字时重试多少次直到关闭我们的tcp连接.
 
-# 内存使用
+## 内存使用
 net.ipv4.tcp_meme:  
 net.ipv4.tcp_rmem:  
 net.ipv4.tcp_wmem:  
 net.core.wmem_max:  
 net.core.rmem_max:  
-
