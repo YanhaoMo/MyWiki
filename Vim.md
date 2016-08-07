@@ -42,25 +42,24 @@ Bundle 'vim-scripts/mru.vim'
 Bundle 'mhinz/vim-startify'
 "多光标编辑
 Bundle 'terryma/vim-multiple-cursors'
-"语法高亮增强
-Bundle 'sheerun/vim-polyglot'
-Bundle 'othree/javascript-libraries-syntax.vim'
-"PyMode
-Bundle 'klen/python-mode'
-"Javascript增强
-Bundle 'pangloss/vim-javascript'
 "补全插件
 "Bundle 'Valloric/YouCompleteMe'
 "补全增强
 "Bundle 'SirVer/ultisnips'
 "代码片段支持
-"Bundle 'honza/vim-snippets'
+Bundle 'honza/vim-snippets'
 "文件搜索
 "Bundle 'kien/ctrlp.vim'
 "静态语法检查
 "Bundle 'scrooloose/syntastic'
 "git支持
 "Bundle 'tpope/vim-fugitive'
+"Python增强
+Bundle 'klen/python-mode'
+"vim org-mode
+Bundle 'jceb/vim-orgmode'
+Bundle 'tpope/vim-speeddating'
+Bundle 'dhruvasagar/vim-table-mode'
 
 call vundle#end()
 filetype plugin indent on
@@ -401,4 +400,6 @@ map <C-k> <C-b>
 map ,,j <Plug>(easymotion-w)
 map ,,k <Plug>(easymotion-b)
 map ,,s <Plug>(easymotion-s)
+
+let g:table_mode_always_active = 1
 ```
