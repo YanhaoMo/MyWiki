@@ -22,6 +22,9 @@ Don't try to sign up, you will never succeed.
 # Packaging
 * [Debian packaging]()
 
+# Network
+* [Network]()
+
 # dotfiles
 * [dotfiles]()
 
