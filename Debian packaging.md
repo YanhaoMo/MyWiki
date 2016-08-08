@@ -1,4 +1,9 @@
 # package tools
 
-* [git-buildpackage]()
+* [build-essential]()
 * [dh-make]()
+* [devscripts]()
+* [quilt]()
+* [git-buildpackage]()
+* [cowbuilder]()
+* [pbuilder]()
