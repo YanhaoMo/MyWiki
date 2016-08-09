@@ -21,3 +21,10 @@ This is the index page of my Server configurations notes.
 * [gitlab]()
 * [gogs]()
 * [cgit]()
+
+# CMS
+* [WordPress]()
+* [Typecho]()
+
+# Forums
+* [phpBB]()
