@@ -10,7 +10,6 @@ This is the index page of my Server configurations notes.
 * [mini-buildd]()
 
 # git server
-
 * [gitlab]()
 * [gogs]()
 * [cgit]()
