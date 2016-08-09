@@ -17,6 +17,11 @@ This is the index page of my Server configurations notes.
 * [OpenStacks]()
 * [Docker]()
 
+# CI
+
+# monitor
+
+
 # git server
 * [gitlab]()
 * [gogs]()
