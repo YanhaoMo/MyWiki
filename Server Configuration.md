@@ -9,6 +9,14 @@ This is the index page of my Server configurations notes.
 * [tcpdump]()
 * [mini-buildd]()
 
+# web server
+* [NginX]()
+* [Apache]()
+
+# Cloud Service
+* [OpenStacks]()
+* [Docker]()
+
 # git server
 * [gitlab]()
 * [gogs]()
