@@ -25,6 +25,9 @@ Don't try to sign up, you will never succeed.
 # Network
 * [Network]()
 
+# Auto Test
+* [Auto Test]()
+ 
 # dotfiles
 * [dotfiles]()
 
