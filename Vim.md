@@ -18,8 +18,9 @@ Bundle 'Shougo/unite.vim'
 Bundle 'majutsushi/tagbar'
 "显示git修改状态
 Bundle 'airblade/vim-gitgutter'
-"gruvbox主题
+"vim主题
 Bundle 'morhetz/gruvbox'
+Bundle 'altercation/vim-colors-solarized'
 "不同层次括号着色
 Bundle 'kien/rainbow_parentheses.vim'
 "状态条增强
@@ -43,17 +44,17 @@ Bundle 'mhinz/vim-startify'
 "多光标编辑
 Bundle 'terryma/vim-multiple-cursors'
 "补全插件
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 "补全增强
-"Bundle 'SirVer/ultisnips'
+Bundle 'SirVer/ultisnips'
 "代码片段支持
 Bundle 'honza/vim-snippets'
 "文件搜索
-"Bundle 'kien/ctrlp.vim'
+Bundle 'kien/ctrlp.vim'
 "静态语法检查
-"Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 "git支持
-"Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-fugitive'
 "Python增强
 Bundle 'klen/python-mode'
 "vim org-mode
