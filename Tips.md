@@ -22,3 +22,4 @@ else
     local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[yellow]%}➜ %s)"
 fi
 ```
+这样,普通用户的箭头会显示为绿色,而root用户的箭头显示为红色,错误的返回状态一律显示为黄色.
