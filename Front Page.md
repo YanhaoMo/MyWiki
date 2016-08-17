@@ -10,6 +10,9 @@ Most of them are about Computer Science.
 
 Don't try to sign up, you will never succeed. 
 
+# Tips
+* [Tips]()
+
 # Server Configuration
 * [Server Configuration]()
 
