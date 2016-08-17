@@ -17,8 +17,8 @@ newgrp hao
 修改文件`${ZSH}/themes/robbyrussell.zsh-theme` 添加如下内容:
 ```bash
 if [ $(whoami) = "root" ]; then
-    local ret_status="%(?:%{$fg_bold[blue]%}➜ :%{$fg_bold[red]%}➜ %s)"
+    local ret_status="%(?:%{$fg_bold[blue]%}➜ :%{$fg_bold[yellow]%}➜ %s)"
 else
-    local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
+    local ret_status="%(?:%{$fg_bold[red]%}➜ :%{$fg_bold[yellow]%}➜ %s)"
 fi
 ```
