@@ -13,6 +13,9 @@ Don't try to sign up, you will never succeed.
 # Tips
 * [Tips]()
 
+# Programming Languages
+* [Programming Languages]()
+
 # Server Configuration
 * [Server Configuration]()
 
