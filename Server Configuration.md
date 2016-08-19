@@ -11,6 +11,7 @@ This is the index page of my Server configurations notes.
 
 # web server
 * [NginX]()
+* [Lighthttpd]()
 * [Apache]()
 
 # Cloud Service
