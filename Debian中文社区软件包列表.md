@@ -8,3 +8,7 @@
 ## 软件包列表
 * chrome
 * vscode
+* telegram
+* wps
+* netease-music
+* i3-gaps
