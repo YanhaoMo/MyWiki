@@ -7,8 +7,15 @@
 
 ## 软件包列表
 * chrome
+* chrome-remote-desktop
 * vscode
-* telegram
 * wps
+* telegram
 * netease-music
 * i3-gaps
+* qtox
+* nixnote2
+* obs-studio
+* xfce4-kbdleds-plugin
+* haroopad
+* cutegram
