@@ -25,7 +25,7 @@ fi
 这样,普通用户的箭头会显示为绿色,而root用户的箭头显示为红色,错误的返回状态一律显示为黄色.
 
 # debian系统静默安装软件
-使用debconf-set-
+使用debconf-get-selections 查到对应的包需要回答的问题，然后用debconf-set-selections来设置改问题。
 
 # image0
 `image0`表示一个原始的安装好的操作系统镜像，用来快速启动一个开发或者测试环境。
