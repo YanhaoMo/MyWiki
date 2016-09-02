@@ -16,8 +16,8 @@ Don't try to sign up, you will never succeed.
 # Programming Languages
 * [Programming Languages]()
 
-# Server Configuration
-* [Server Configuration]()
+# Linux
+* [Linux]()
 
 # Performance
 * [Performance]()
