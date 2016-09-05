@@ -12,3 +12,5 @@ schroot需要使用debootstrap来初始化一个运行环境，所以debootstrap
 ```sh
 apt update && apt install debootstrap -y
 ```
+# 配置文件
+schroot的配置文件位于`/etc/schroot/schroot.conf`文件和`/etc/schroot/schroot.d`目录中。
