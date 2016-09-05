@@ -62,7 +62,7 @@ sudo cryptsetup luksAddKey /dev/sda2 /root/autounlock.key --key-slot 1
 ```sh
 sudo cryptsetup luksDump /dev/sda2
 ```
-创建一个新的脚本，用来将这个keyfile导入系统的initramfs中。
+创建一个新的脚本，用来在initramfs中将这个keyfile导入系统。
 ```sh
 sudo touch /lib/cryptsetup/scripts/getinitramfskey.sh
 ```
@@ -91,6 +91,40 @@ fi
 给这个文件加上可执行权限：
 ```sh
 sudo chmod +x /lib/cryptsetup/scripts/getinitramfskey.sh
+```
+
+然后再创建一个新的shell脚本，这个脚本在系统创建initramfs时被调用，作用是加载keyfile到initramfs中。
+```sh
+sudo 
+```
+`loadinitramfskey.sh`的内容：
+```sh
+#!/bin/sh
+# File : /etc/initramfs-tools/hooks/loadinitramfskey.sh
+# Description : This hook script is called by update-initramfs. The script checks for the existence of the key file loading script getinitramfskey.sh and copies it to initramfs if it's missing.
+# This script also copies the key file autounlock.key to the /root/ directory of the initramfs. This file is accessed by getinitramfskey.sh, as specified in /etc/crypttab.
+PREREQ=""
+prereqs() {
+  echo "$PREREQ"
+}
+case "$1" in
+  prereqs)
+    prereqs
+    exit 0
+  ;;
+esac
+. "${CONFDIR}/initramfs.conf"
+. /usr/share/initramfs-tools/hook-functions
+if [ ! -f "${DESTDIR}/lib/cryptsetup/scripts/getinitramfskey.sh" ]; then
+  if [ ! -d "${DESTDIR}/lib/cryptsetup/scripts" ]; then
+  mkdir -p "${DESTDIR}/lib/cryptsetup/scripts"
+  fi
+  cp /lib/cryptsetup/scripts/getinitramfskey.sh ${DESTDIR}/lib/cryptsetup/scripts/
+fi
+if [ ! -d "${DESTDIR}/root/" ]; then
+  mkdir -p ${DESTDIR}/root/
+fi
+cp /root/autounlock.key ${DESTDIR}/root/
 ```
 
 # 使用keyfile的全盘加密(包括/boot)
