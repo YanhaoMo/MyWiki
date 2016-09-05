@@ -95,7 +95,7 @@ sudo chmod +x /lib/cryptsetup/scripts/getinitramfskey.sh
 
 然后再创建一个新的shell脚本，这个脚本在系统创建initramfs时被调用，作用是加载keyfile到initramfs中。
 ```sh
-sudo 
+sudo /etc/initramfs-tools/hooks/loadinitramfskey.sh
 ```
 `loadinitramfskey.sh`的内容：
 ```sh
@@ -125,6 +125,10 @@ if [ ! -d "${DESTDIR}/root/" ]; then
   mkdir -p ${DESTDIR}/root/
 fi
 cp /root/autounlock.key ${DESTDIR}/root/
+```
+同样地，给这个文件加上可执行权限：
+```sh
+sudo chmod +x /etc/initramfs-tools/hooks/loadinitramfskey.sh
 ```
 
 # 使用keyfile的全盘加密(包括/boot)
