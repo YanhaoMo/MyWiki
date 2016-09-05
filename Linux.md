@@ -8,6 +8,7 @@ This is the index page of my Server configurations notes.
 * [iptables]()
 * [tcpdump]()
 * [mini-buildd]()
+* [LUKS]()
 
 # web server
 * [NginX]()
