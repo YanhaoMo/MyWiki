@@ -1,6 +1,6 @@
 # LUKS简介
 
-# 分区加密
+# 数据分区加密
 
 ## 加密分区
 在Debian系的系统中使用LUKS，首先要确保你的系统中已经正确安装了**cryptsetup**这个包
@@ -36,9 +36,9 @@ sudo mount /dev/mapper/crypt_data /mnt
 sudo umount /dev/sda5
 sudo cryptsetup luksClose cry_data
 ```
-# 全盘加密(不包括/boot)
+# 根分区加密(不包括/boot)
 
-# 使用keyfile的全盘加密(不包括/boot)
+# 使用keyfile的根分区加密(不包括/boot)
 假设你已通过上一节的方法安装了全盘加密(不包括/boot)的Debian系统，那么接下来介绍如何使用keyfile来进行全盘加密的自动解密。
 用来解密的keyfile被存储在initramfs中。下面是具体步骤。
 
