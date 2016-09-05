@@ -30,7 +30,7 @@ fi
 # image0
 `image0`表示一个原始的安装好的操作系统镜像，用来快速启动一个开发或者测试环境。
 
-## image0 的修改
+## deepin-server-image0
 
 - 关闭防火墙
 - 打开root用户的ssh登陆许可
@@ -40,3 +40,5 @@ fi
 - 设置grub启动等待时间为0
 - 保证设置好足够大的系统空间
 - 设置root弱密码
+
+## debian-stable -images0
