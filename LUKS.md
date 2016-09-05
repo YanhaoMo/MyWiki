@@ -39,6 +39,26 @@ sudo cryptsetup luksClose cry_data
 # 根分区加密(不包括/boot)
 
 # 使用kyefile的普通系统分区加密
+如果系统分区**/var**是一个单独的分区，假设是/dev/sda5，并且该分区是使用cryptsetup加密过的，
+那么应该如何使用keyfile来在开机时自动进行分区解密呢？
+
+### 创建keyfile
+首先创建一个keyfile文件。
+```sh
+sudo dd if=/dev/urandom of=/root/autounlock.key bs=512 count=4
+sudo chmod 0400 /root/autounlock.key
+```
+
+### 用keyfile加密分区
+```sh
+sudo cryptsetup luksAddKey /dev/sda5 /root/autounlock.key
+```
+
+### 修改`crypttab`文件
+最后，修改`/etc/crypttab`文件，在keyfile那一部分加入`/root/autounlock.key`，`/etc/crypttab`配置文件的结构如下所示：
+```text
+<target name>	<source device>		<key file>	<options>
+```
 
 # 使用keyfile的根分区加密(不包括/boot)
 假设你已通过上一节的方法安装了全盘加密(不包括/boot)的Debian系统，那么接下来介绍如何使用keyfile来进行全盘加密的自动解密。
