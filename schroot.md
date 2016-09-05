@@ -8,3 +8,7 @@ schroot存在于官方源中，所以直接使用保管理器来安装即可：
 ```sh
 apt update && apt install schroot -y
 ```
+schroot需要使用debootstrap来初始化一个运行环境，所以debootstrap这个包也是必需的：
+```sh
+apt update && apt install debootstrap -y
+```
