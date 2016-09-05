@@ -38,6 +38,8 @@ sudo cryptsetup luksClose cry_data
 ```
 # 根分区加密(不包括/boot)
 
+# 使用kyefile的普通系统分区加密
+
 # 使用keyfile的根分区加密(不包括/boot)
 假设你已通过上一节的方法安装了全盘加密(不包括/boot)的Debian系统，那么接下来介绍如何使用keyfile来进行全盘加密的自动解密。
 用来解密的keyfile被存储在initramfs中。下面是具体步骤。
