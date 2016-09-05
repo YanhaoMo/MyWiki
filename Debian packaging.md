@@ -7,4 +7,7 @@
 * [git-buildpackage]()
 * [cowbuilder]()
 * [pbuilder]()
+* [sbuilder]()
+* [schroot]()
+* [debootstrap]()
 * [make]()
