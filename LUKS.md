@@ -130,5 +130,14 @@ cp /root/autounlock.key ${DESTDIR}/root/
 ```sh
 sudo chmod +x /etc/initramfs-tools/hooks/loadinitramfskey.sh
 ```
+修改`/etc/crypttab`文件，使之看起来像下面的样子
+```text
+sda2_crypt UUID=a8604976-269b-4ab1-8ecc-63960f60f008 /root/autounlock.key luks,discard,noearly,keyscript=/lib/cryptsetup/scripts/getinitramfskey.sh
 
+```
+最后，需要执行命令来重新生成initramfs，
+```sh
+sudo update-ininramfs -u
+```
+这样，重启系统之后，你会发现，此时已经不再需要输入密码了，系统已经使用initramfs中存储的keyfile文件来自动解密了系统分区。
 # 使用keyfile的全盘加密(包括/boot)
