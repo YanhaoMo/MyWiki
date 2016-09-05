@@ -14,3 +14,11 @@ apt update && apt install debootstrap -y
 ```
 # 配置文件
 schroot的配置文件位于`/etc/schroot/schroot.conf`文件和`/etc/schroot/schroot.d`目录中。
+
+# 使用
+下面来简单看一下schroot的使用。
+## 创建一个新的root环境
+```sh
+mkdir -p /srv/chroot/test
+debootstrap wheezy /srv/chroot/test
+```
