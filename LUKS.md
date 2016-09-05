@@ -39,9 +39,8 @@ sudo cryptsetup luksClose cry_data
 # 全盘加密(不包括/boot)
 
 # 使用keyfile的全盘加密(不包括/boot)
-假设你已通过上一节的方法安装了全盘加密(不包括/boot)的系统，那么接下来介绍如何使用keyfile来进行全盘加密的自动解密。
-
-使用keyfile可以在系统启动时进行自动解密，用来解密的keyfile被存储在initramfs中。下面是具体步骤。
+假设你已通过上一节的方法安装了全盘加密(不包括/boot)的Debian系统，那么接下来介绍如何使用keyfile来进行全盘加密的自动解密。
+用来解密的keyfile被存储在initramfs中。下面是具体步骤。
 
 假设下面是现在的系统布局状况：
 
@@ -54,6 +53,7 @@ sudo cryptsetup luksClose cry_data
 sudo dd if=/dev/urandom of=/root/autounlock.key bs=512 count=4
 sudo hmod 0400 /root/autounlock.key
 ```
+### 使用keyfile加密根分区
 然后将使用这个keyfile来加密系统分区
 ```sh
 sudo cryptsetup luksAddKey /dev/sda2 /root/autounlock.key --key-slot 1
@@ -62,6 +62,7 @@ sudo cryptsetup luksAddKey /dev/sda2 /root/autounlock.key --key-slot 1
 ```sh
 sudo cryptsetup luksDump /dev/sda2
 ```
+### initramfs中加载keyfile的脚本
 创建一个新的脚本，用来在initramfs中将这个keyfile导入系统。
 ```sh
 sudo touch /lib/cryptsetup/scripts/getinitramfskey.sh
@@ -92,7 +93,7 @@ fi
 ```sh
 sudo chmod +x /lib/cryptsetup/scripts/getinitramfskey.sh
 ```
-
+### 创建`update-initramfs`hook脚本
 然后再创建一个新的shell脚本，这个脚本在系统创建initramfs时被调用，作用是加载keyfile到initramfs中。
 ```sh
 sudo /etc/initramfs-tools/hooks/loadinitramfskey.sh
