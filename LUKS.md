@@ -140,4 +140,5 @@ sda2_crypt UUID=a8604976-269b-4ab1-8ecc-63960f60f008 /root/autounlock.key luks,d
 sudo update-ininramfs -u
 ```
 这样，重启系统之后，你会发现，此时已经不再需要输入密码了，系统已经使用initramfs中存储的keyfile文件来自动解密了系统分区。
+
 # 使用keyfile的全盘加密(包括/boot)
