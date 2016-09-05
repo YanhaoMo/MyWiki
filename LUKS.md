@@ -39,5 +39,13 @@ sudo cryptsetup luksClose cry_data
 # 全盘加密(不包括/boot)
 
 # 使用keyfile的全盘加密(不包括/boot)
+假设你已通过上一节的方法安装了全盘加密(不包括/boot)的系统，那么接下来介绍如何使用keyfile来进行全盘加密的自动解密。
+
+使用keyfile可以在系统启动时进行自动解密，用来解密的keyfile被存储在initramfs中。下面是具体步骤。
+
+假设下面是现在的系统布局状况：
+
+* /dev/sda1 /boot 不加密
+* /dev/sda2 / 加密
 
 # 使用keyfile的全盘加密(包括/boot)
