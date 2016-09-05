@@ -131,11 +131,13 @@ cp /root/autounlock.key ${DESTDIR}/root/
 ```sh
 sudo chmod +x /etc/initramfs-tools/hooks/loadinitramfskey.sh
 ```
+
+### 修改`/etc/crypttab`配置
 修改`/etc/crypttab`文件，使之看起来像下面的样子
 ```text
 sda2_crypt UUID=a8604976-269b-4ab1-8ecc-63960f60f008 /root/autounlock.key luks,discard,noearly,keyscript=/lib/cryptsetup/scripts/getinitramfskey.sh
-
 ```
+### 重新生成initramfs
 最后，需要执行命令来重新生成initramfs，
 ```sh
 sudo update-ininramfs -u
