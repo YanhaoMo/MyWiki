@@ -28,7 +28,7 @@ sudo cryptsetup luskOpen /dev/sda5 crypt_data
 sudo mkfs.ext4 /dev/mapper/crypt_data
 sudo mount /dev/mapper/crypt_data /mnt
 ```
-**注意** 注意，这个时候**/dev/sda5**这个文件已经不能进行正常的建立文件系统，挂载等操作，而仅仅用来加解密，
+**注意，**这个时候**/dev/sda5**这个文件已经不能进行正常的建立文件系统，挂载等操作，而仅仅用来加解密，
 相应的文件系统操作都应该对**/dev/mapper**目录下生成的文件来进行。
 
 当进行完数据操作之后，通过以下命令来卸载分区，使分区重新回到加密状态。
@@ -47,5 +47,20 @@ sudo cryptsetup luksClose cry_data
 
 * /dev/sda1 /boot 不加密
 * /dev/sda2 / 加密
+
+### 生成keyfile
+首先生成一段随机的二进制数据来作为我们的keyfile
+```sh
+sudo dd if=/dev/urandom of=/root/autounlock.key bs=512 count=4
+sudo hmod 0400 /root/autounlock.key
+```
+然后将使用这个keyfile来加密系统分区
+```sh
+sudo cryptsetup luksAddKey /dev/sda2 /root/autounlock.key --key-slot 1
+```
+可以通过以下命令来进一步查看系统分区的加密状况
+```sh
+sudo cryptsetup luksDump /dev/sda2
+```
 
 # 使用keyfile的全盘加密(包括/boot)
