@@ -62,5 +62,35 @@ sudo cryptsetup luksAddKey /dev/sda2 /root/autounlock.key --key-slot 1
 ```sh
 sudo cryptsetup luksDump /dev/sda2
 ```
+创建一个新的脚本，用来将这个keyfile导入系统的initramfs中。
+```sh
+sudo touch /lib/cryptsetup/scripts/getinitramfskey.sh
+```
+以下是`getinitramfskey.sh`文件的内容
+```sh
+#!/bin/busybox ash
+# File : /lib/cryptsetup/scripts/getinitramfskey.sh
+# Description : 
+#   This script is called by initramfs using busybox ash. 
+#   The script is added to initramfs as a result of /etc/crypttab option
+#       "keyscript=/lib/cryptsetup/scripts/getinitramfskey.sh", && update-initramfs.
+#   This script prints the contents of a key file to stdout using cat or dd. 
+#   The key file location is supplied as $1 from the third field 
+#       in /etc/crypttab, or can be hard-coded in this script.
+#   If using a key embedded in initrd.img-*, a hook script in /etc/initramfs-tools/hooks/ 
+#       is required by update-initramfs. The hook script copies the /root/autounlock.key 
+#       file into the initramfs {DESTDIR}.
+KEY="${1}"
+if [ -f "${KEY}" ]; then
+  cat "${KEY}"
+else
+  PASS=/bin/plymouth ask-for-password --prompt="Key not found. Enter LUKS Password: "
+echo "${PASS}"
+fi
+```
+给这个文件加上可执行权限：
+```sh
+sudo chmod +x /lib/cryptsetup/scripts/getinitramfskey.sh
+```
 
 # 使用keyfile的全盘加密(包括/boot)
