@@ -39,6 +39,3 @@ This is the index page of my Server configurations notes.
 
 # Forums
 * [phpBB]()
-
-# Others
-* [LUKS]()
