@@ -9,6 +9,7 @@ This is the index page of my Server configurations notes.
 * [tcpdump]()
 * [mini-buildd]()
 * [LUKS]()
+* [SFTP]()
 
 # web server
 * [NginX]()
