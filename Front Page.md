@@ -1,6 +1,7 @@
 ---
 format: Markdown
 title: Yanhao Wiki
+toc: no
 ---
 
 # About this Wiki
