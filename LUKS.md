@@ -162,8 +162,82 @@ sda2_crypt UUID=a8604976-269b-4ab1-8ecc-63960f60f008 /root/autounlock.key luks,d
 ### 重新生成initramfs
 最后，需要执行命令来重新生成initramfs，
 ```sh
-sudo update-ininramfs -u
+sudo update-ininramfs -u -k all
 ```
 这样，重启系统之后，你会发现，此时已经不再需要输入密码了，系统已经使用initramfs中存储的keyfile文件来自动解密了系统分区。
+
+# 将keyfile放到U盘里
+可以将keyfile放到U盘里，这样，把U盘插到电脑上，系统在启动时如果检测到U盘里的keyfile，就会自动用该keyfile解密分区并正常启动，
+免除了手动输入密码的繁杂，不过当U盘没有插入电脑或者没有读取到keyfile，系统还是会提示用户输入密码来进行解密。
+
+具体的实现方法与上一节类似，不过要事先准备好一个u盘，把keyfile拷贝到这个u盘的第一个分区上，
+要注意，这个分区必须是ext分区，否则会挂载失败。
+
+与上一节的区别主要包括一下几个方面，
+
+- loadkeyfile.sh 文件内容不同
+- keyfile-hook.sh 文件内容不同
+- /etc/crypttab 配置不同
+
+## loadkeyfile.sh 内容
+
+```sh
+#!/bin/busybox ash
+
+if [ -f /dev/sdb1 ]; then
+  echo "mount the divece containing keyfile ..."
+  mount /dev/sdb1 /root/key 2> /dev/null
+fi
+
+KEY="${1}"
+if [ -f "${KEY}" ]; then
+  cat "${KEY}"
+else
+  echo "FAILED to find suitable USB keychain ..." >&2
+  echo -n "Try to enter your password: " >&2
+  read -s -r PASSWD < /dev/console
+  echo -n "$PASSWD"
+fi
+
+if [ -f /dev/sdb1 ]; then
+  umount /ev/sdb1 2> /dev/null
+fi
+```
+
+## keyfile-hook.sh 内容
+
+```sh
+#!/bin/sh
+PREREQ=""
+prereqs() {
+  echo "$PREREQ"
+}
+case "$1" in
+  prereqs)
+    prereqs
+    exit 0
+  ;;
+esac
+
+. "${CONFDIR}/initramfs.conf"
+. /usr/share/initramfs-tools/hook-functions
+
+if [ ! -f "${DESTDIR}/lib/cryptsetup/scripts/loadkeyfile.sh" ]; then
+  if [ ! -d "${DESTDIR}/lib/cryptsetup/scripts" ]; then
+  mkdir -p "${DESTDIR}/lib/cryptsetup/scripts"
+  fi
+
+  cp /lib/cryptsetup/scripts/loadkeyfile.sh ${DESTDIR}/lib/cryptsetup/scripts/
+fi
+if [ ! -d "${DESTDIR}/root/key" ]; then
+    mkdir -p "${DESTDIR}/root/key"
+fi
+```
+
+## /etc/cryttab 内容
+
+```text
+sda2_crypt UUID=563edceb-392c-49f6-9ace-e9b8a6b418d2 /root/key/keyfile none luks,keyscript=/lib/cryptsetup/scripts/loadkeyfile.sh
+```
 
 # 使用keyfile的全盘加密(包括/boot)
