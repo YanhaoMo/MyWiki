@@ -11,7 +11,7 @@ sudo apt update && apt install cryptsetup -y
 
 首先执行以下命令，这会为你创建一个加密的数据分区：
 ```sh
-sudo cryptsetup -y -v luskFormat /dev/sda5
+sudo cryptsetup -y -v luksFormat /dev/sda5
 ```
 然后系统会提示你输入一个大写的**YES**来确认你的操作，然后会让你输入密码。完成之后，这个分区就已经被加密了。
 
@@ -45,17 +45,17 @@ sudo cryptsetup luksClose cry_data
 ### 创建keyfile
 首先创建一个keyfile文件。
 ```sh
-sudo dd if=/dev/urandom of=/root/autounlock.key bs=512 count=4
-sudo chmod 0400 /root/autounlock.key
+sudo dd if=/dev/urandom of=/root/keyfile bs=512 count=4
+sudo chmod 0400 /root/keyfile
 ```
 
 ### 用keyfile加密分区
 ```sh
-sudo cryptsetup luksAddKey /dev/sda5 /root/autounlock.key
+sudo cryptsetup luksAddKey /dev/sda5 /root/keyfile
 ```
 
 ### 修改`crypttab`文件
-最后，修改`/etc/crypttab`文件，在keyfile那一部分加入`/root/autounlock.key`，`/etc/crypttab`配置文件的结构如下所示：
+最后，修改`/etc/crypttab`文件，在keyfile那一部分加入`/root/keyfile`，`/etc/crypttab`配置文件的结构如下所示：
 ```text
 <target name>	<source device>		<key file>	<options>
 ```
@@ -72,13 +72,13 @@ sudo cryptsetup luksAddKey /dev/sda5 /root/autounlock.key
 ### 生成keyfile
 首先生成一段随机的二进制数据来作为我们的keyfile
 ```sh
-sudo dd if=/dev/urandom of=/root/autounlock.key bs=512 count=4
-sudo hmod 0400 /root/autounlock.key
+sudo dd if=/dev/urandom of=/root/keyfile bs=512 count=4
+sudo hmod 0400 /root/keyfile
 ```
 ### 使用keyfile加密根分区
 然后将使用这个keyfile来加密系统分区
 ```sh
-sudo cryptsetup luksAddKey /dev/sda2 /root/autounlock.key --key-slot 1
+sudo cryptsetup luksAddKey /dev/sda2 /root/keyfile --key-slot 1
 ```
 可以通过以下命令来进一步查看系统分区的加密状况
 ```sh
@@ -87,22 +87,11 @@ sudo cryptsetup luksDump /dev/sda2
 ### initramfs中加载keyfile的脚本
 创建一个新的脚本，用来在initramfs中将这个keyfile导入系统。
 ```sh
-sudo touch /lib/cryptsetup/scripts/getinitramfskey.sh
+sudo touch /lib/cryptsetup/scripts/loadkeyfile.sh
 ```
-以下是`getinitramfskey.sh`文件的内容
+以下是`loadkeyfile.sh`文件的内容
 ```sh
 #!/bin/busybox ash
-# File : /lib/cryptsetup/scripts/getinitramfskey.sh
-# Description : 
-#   This script is called by initramfs using busybox ash. 
-#   The script is added to initramfs as a result of /etc/crypttab option
-#       "keyscript=/lib/cryptsetup/scripts/getinitramfskey.sh", && update-initramfs.
-#   This script prints the contents of a key file to stdout using cat or dd. 
-#   The key file location is supplied as $1 from the third field 
-#       in /etc/crypttab, or can be hard-coded in this script.
-#   If using a key embedded in initrd.img-*, a hook script in /etc/initramfs-tools/hooks/ 
-#       is required by update-initramfs. The hook script copies the /root/autounlock.key 
-#       file into the initramfs {DESTDIR}.
 KEY="${1}"
 if [ -f "${KEY}" ]; then
   cat "${KEY}"
@@ -113,19 +102,16 @@ fi
 ```
 给这个文件加上可执行权限：
 ```sh
-sudo chmod +x /lib/cryptsetup/scripts/getinitramfskey.sh
+sudo chmod +x /lib/cryptsetup/scripts/loadkeyfile.sh
 ```
 ### 创建`update-initramfs`hook脚本
 然后再创建一个新的shell脚本，这个脚本在系统创建initramfs时被调用，作用是加载keyfile到initramfs中。
 ```sh
-sudo /etc/initramfs-tools/hooks/loadinitramfskey.sh
+sudo /etc/initramfs-tools/hooks/keyfile-hook.sh
 ```
-`loadinitramfskey.sh`的内容：
+`keyfile-hook.sh`的内容：
 ```sh
 #!/bin/sh
-# File : /etc/initramfs-tools/hooks/loadinitramfskey.sh
-# Description : This hook script is called by update-initramfs. The script checks for the existence of the key file loading script getinitramfskey.sh and copies it to initramfs if it's missing.
-# This script also copies the key file autounlock.key to the /root/ directory of the initramfs. This file is accessed by getinitramfskey.sh, as specified in /etc/crypttab.
 PREREQ=""
 prereqs() {
   echo "$PREREQ"
@@ -138,26 +124,26 @@ case "$1" in
 esac
 . "${CONFDIR}/initramfs.conf"
 . /usr/share/initramfs-tools/hook-functions
-if [ ! -f "${DESTDIR}/lib/cryptsetup/scripts/getinitramfskey.sh" ]; then
+if [ ! -f "${DESTDIR}/lib/cryptsetup/scripts/loadkeyfile.sh" ]; then
   if [ ! -d "${DESTDIR}/lib/cryptsetup/scripts" ]; then
   mkdir -p "${DESTDIR}/lib/cryptsetup/scripts"
   fi
-  cp /lib/cryptsetup/scripts/getinitramfskey.sh ${DESTDIR}/lib/cryptsetup/scripts/
+  cp /lib/cryptsetup/scripts/loadkeyfile.sh ${DESTDIR}/lib/cryptsetup/scripts/
 fi
 if [ ! -d "${DESTDIR}/root/" ]; then
   mkdir -p ${DESTDIR}/root/
 fi
-cp /root/autounlock.key ${DESTDIR}/root/
+cp /root/keyfile ${DESTDIR}/root/
 ```
 同样地，给这个文件加上可执行权限：
 ```sh
-sudo chmod +x /etc/initramfs-tools/hooks/loadinitramfskey.sh
+sudo chmod +x /etc/initramfs-tools/hooks/keyfile-hook.sh
 ```
 
 ### 修改`/etc/crypttab`配置
 修改`/etc/crypttab`文件，使之看起来像下面的样子
 ```text
-sda2_crypt UUID=a8604976-269b-4ab1-8ecc-63960f60f008 /root/autounlock.key luks,discard,noearly,keyscript=/lib/cryptsetup/scripts/getinitramfskey.sh
+sda2_crypt UUID=a8604976-269b-4ab1-8ecc-63960f60f008 /root/keyfile luks,discard,noearly,keyscript=/lib/cryptsetup/scripts/loadkeyfile.sh
 ```
 ### 重新生成initramfs
 最后，需要执行命令来重新生成initramfs，
