@@ -10,6 +10,7 @@ This is the index page of my Server configurations notes.
 * [mini-buildd]()
 * [LUKS]()
 * [SFTP]()
+* [regex]()
 
 # web server
 * [NginX]()
