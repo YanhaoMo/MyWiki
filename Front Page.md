@@ -4,12 +4,11 @@ title: Yanhao Wiki
 toc: no
 ---
 
+<center>
 # About this Wiki
-This is my personal Wiki, contains some useful notes of mine.
-
-Most of them are about Computer Science.
-
-Don't try to sign up, you will never succeed. 
+</center>
+<center>This is my personal Wiki, contains some useful notes of mine.
+Most of them are about Computer Science. </center>
 
 # Tips
 * [Tips]()
