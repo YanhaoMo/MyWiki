@@ -4,8 +4,8 @@ title: About this Wiki
 toc: no
 ---
 
-<center>This is my personal Wiki, contains some useful notes of mine.
-Most of them are about Computer Science. </center>
+This is my personal Wiki, contains some useful notes of mine.
+Most of them are about Computer Science.
 
 # Tips
 * [Tips]()
