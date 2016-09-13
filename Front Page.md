@@ -15,8 +15,8 @@ Most of them are about Computer Science.
 # Performance
 * [Performance]()
 
-# Tips
-* [Tips]()
+# Network
+* [Network]()
 
 # Packaging
 * [Debian packaging]()
@@ -32,12 +32,12 @@ Most of them are about Computer Science.
 # Web development
 * [Web development]()
 
-# Network
-* [Network]()
-
 # Test
 * [Auto Test]()
  
+# Tips
+* [Tips]()
+
 # Handy tools
 * [Handy tools]()
 </div>
