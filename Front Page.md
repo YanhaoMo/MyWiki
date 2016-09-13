@@ -1,12 +1,9 @@
 ---
 format: Markdown
-title: 
+title: About this Wiki
 toc: no
 ---
 
-<center>
-# About this Wiki
-</center>
 <center>This is my personal Wiki, contains some useful notes of mine.
 Most of them are about Computer Science. </center>
 
