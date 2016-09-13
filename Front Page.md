@@ -7,6 +7,8 @@ toc: no
 This is my personal Wiki, contains some useful notes of mine.
 Most of them are about Computer Science.
 
+<div>
+<div style="border: 1px solid #000; heigh:100px; width:45%; float:left;">
 # Tips
 * [Tips]()
 
@@ -24,7 +26,9 @@ Most of them are about Computer Science.
 
 # Packaging
 * [Debian packaging]()
+</div>
 
+<div style="border: 1px solid #000; heigh:100px; width:45%; float:right;">
 # Network
 * [Network]()
 
@@ -45,3 +49,5 @@ Most of them are about Computer Science.
 
 # TODO
 * [TODO]()
+</div>
+</div>
