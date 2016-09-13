@@ -1,4 +1,4 @@
-## 清空现在的所有iptables配置
+# 清空现在的所有iptables配置
 ```sh
 iptables -F
 iptables -X
