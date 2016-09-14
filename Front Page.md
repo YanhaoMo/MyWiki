@@ -20,9 +20,6 @@ Most of them are about Computer Science.
 
 # Packaging
 * [Debian packaging]()
-
-# TODO
-* [TODO]()
 </div>
 
 <div style="margin-right:8%; heigh:100px; width:45%; float:right;">
