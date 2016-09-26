@@ -3,3 +3,8 @@
 英文键盘。
 
 然后修改/etc/apt/source.list文件为sid的源，然后更新系统到sid。
+
+# 安装桌面
+```sh
+sudo apt install xorg lightdm i3
+```
