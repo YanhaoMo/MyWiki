@@ -32,6 +32,8 @@ fi
 
 ## deepin-server-image0
 
+必要软件：vim、ssh
+
 - 关闭防火墙
 - 打开root用户的ssh登陆许可
 - 安装vim并启用语法高亮
@@ -42,6 +44,8 @@ fi
 - 设置root弱密码
 
 ## debian-sid-images0
+
+必要软件：vim、ssh
 
 - 关闭防火墙
 - 打开root用户的ssh登陆许可
