@@ -3,11 +3,15 @@
 在 foo 目录下，一般需要包含这些文件或目录：
 
 - README 
-- LICENSE
 - src
 - include
-- doc
 - build
 - test
+
+以上是必须包含的，顺便，下面是一些可选项目：
+
+- LICENSE
+- doc
+- 
 
 # 头文件
