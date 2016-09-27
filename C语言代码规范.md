@@ -28,7 +28,7 @@
 #ifndef FOO_BAR_BAZ_H_
 #define FOO_BAR_BAZ_H_
 …
-#endif // FOO_BAR_BAZ_H_
+#endif  // FOO_BAR_BAZ_H_
 ```
 头文件的实质内容要放在上面的`...`位置。
 
