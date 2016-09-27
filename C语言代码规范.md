@@ -7,11 +7,11 @@
 - include
 - build
 - test
+- Makefile
 
 以上是必须包含的，顺便，下面是一些可选项目：
 
 - LICENSE
 - doc
-- 
 
 # 头文件
