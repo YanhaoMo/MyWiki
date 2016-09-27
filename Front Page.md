@@ -23,8 +23,8 @@ Most of them are about Computer Science.
 </div>
 
 <div style="margin-right:8%; heigh:100px; width:45%; float:right;">
-# Programming Languages
-* [Programming Languages]()
+# Programming
+* [Programming]()
 
 # Web development
 * [Web development]()
