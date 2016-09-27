@@ -41,4 +41,6 @@ nohup command > /dev/null 2>&1 &
 # chroot到一个新的系统
 假设新的系统位于`/mnt/`目录下并且所需挂载的子目录都已挂载。
 ```sh
+mount -t proc proc /mnt/proc
+
 ```
