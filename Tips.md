@@ -42,5 +42,8 @@ nohup command > /dev/null 2>&1 &
 假设新的系统位于`/mnt/`目录下并且所需挂载的子目录都已挂载。
 ```sh
 mount -t proc proc /mnt/proc
-
+mount --rbind /dev /mnt/dev
+mount --rbind /sys /mnt/sys
+chroot /mnt/sys /bin/bash
+PS1="(chroot $PS1)"
 ```
