@@ -18,7 +18,7 @@ sudo cryptsetup -y -v luksFormat /dev/sda5
 ## 使用加密后的分区
 要想使用加密过的分区，首先需要使用之前设置的密码对其解密才行。
 ```sh
-sudo cryptsetup luskOpen /dev/sda5 crypt_data
+sudo cryptsetup luksOpen /dev/sda5 crypt_data
 ```
 该命令会提示你输入密码解密该分区，成功之后，系统的**/dev/mapper**目录下出现一个**crypt_data**块设备文件，
 该文件的文件名就是上一步**luskOpen**时的最后一个参数。
