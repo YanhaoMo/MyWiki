@@ -3,7 +3,7 @@
 en_US.UTF8 locales，英文键盘。
 
 
-hostname: sid-pc  
+hostname: pc-sid  
 user: hao
 
 然后修改/etc/apt/source.list文件为sid的源，然后更新系统到sid。
