@@ -6,6 +6,9 @@ en_US.UTF8 locales，英文键盘。
 hostname: pc-sid  
 user: hao
 
+分区设置：
+一个efi分区，一个swap分区，一个/分区，挂载参数为noatime
+
 然后修改/etc/apt/source.list文件为sid的源，然后更新系统到sid。
 
 # 安装桌面
