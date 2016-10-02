@@ -13,11 +13,13 @@
 - 普通用户： hao
 
 ## 分区设置：
-- 一个efi分区
-- 一个swap分区
-- 一个根分区，挂载参数为noatime
+- 一个efi分区：1G
+- 一个swap分区：10G
+- 一个根分区：余下的所有硬盘空间，挂载参数为noatime
 
-安装 standard system utilities
+安装系统组件： standard system utilities
+
+**安装完系统之后，重启**
 
 然后修改/etc/apt/source.list文件为sid的源，然后更新系统到sid。
 
