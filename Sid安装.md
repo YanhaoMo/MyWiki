@@ -31,6 +31,17 @@ sudo apt full-upgrade
 sudo apt autoremove
 ```
 
+# 按装缺失固件
+因为在安装系统的过程中不会安装一些专有固件，这会使得系统中的某些硬件无法正常使用，
+所以需要在安装完系统之后额外安装这些缺失的系统固件，对于我的 tp e450 小本本儿来说，
+需要安装下面的包。
+
+```bash
+sudo apt install firmware-iwlwifi
+```
+
+# 安装桌面
+
 ```sh
 sudo apt install xorg lightdm i3
 ```
