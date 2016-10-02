@@ -37,7 +37,7 @@ sudo apt autoremove
 需要安装下面的包。
 
 ```bash
-sudo apt install firmware-iwlwifi
+sudo apt install firmware-iwlwifi firmware-linux-nofree
 ```
 
 # 安装桌面
