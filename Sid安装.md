@@ -40,8 +40,8 @@ sudo apt autoremove
 sudo apt install firmware-iwlwifi firmware-linux-nonfree
 ```
 
-# 安装桌面
+# 安装桌面环境
 
 ```sh
-sudo apt install xorg lightdm i3
+sudo apt install xserver-xorg lightdm i3
 ```
