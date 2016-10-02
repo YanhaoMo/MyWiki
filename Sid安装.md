@@ -1,5 +1,10 @@
 # 安装sid
-首先使用stable的安装镜像来安装一个最小系统，安装设置为：英文语言，中国地区，
+首先使用stable的安装镜像来安装一个最小系统，系统镜像可以去下面下载：
+
+- 中科大镜像源： http://mirrors.ustc.edu.cn/debian-cd/current/amd64/iso-cd/
+- 清华镜像源： https://mirrors.tuna.tsinghua.edu.cn/debian-cd/current/amd64/iso-cd/
+
+安装设置为：英文语言，中国地区，
 en_US.UTF8 locales，英文键盘。
 
 
