@@ -48,3 +48,8 @@ chroot /mnt/sys /bin/bash
 PS1="(chroot $PS1)"
 ```
 完成工作之后，执行`exit`退出chroot环境。
+
+# 关闭主板蜂鸣器
+```bash
+sudo echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+```
