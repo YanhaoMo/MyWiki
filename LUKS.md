@@ -223,7 +223,7 @@ fi
 ## /etc/cryttab 内容
 
 ```text
-sda2_crypt UUID=563edceb-392c-49f6-9ace-e9b8a6b418d2 /root/key/keyfile none luks,keyscript=/lib/cryptsetup/scripts/loadkeyfile.sh
+sda2_crypt UUID=563edceb-392c-49f6-9ace-e9b8a6b418d2 /root/key/keyfile luks,keyscript=/lib/cryptsetup/scripts/loadkeyfile.sh
 ```
 
 # 使用keyfile的全盘加密(包括/boot)
