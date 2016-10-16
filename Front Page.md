@@ -9,7 +9,6 @@ Most of them are about Computer Science.
 
 <div style="widty:100%; height:400px;">
 <div style="heigh:100px; width:45%; float:left;">
-<style>h1{border-bottom:0;}</style>
 # Linux
 * [Linux]()
 
