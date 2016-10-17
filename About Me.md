@@ -10,7 +10,7 @@ tac: no
 
 ***E-mail:*** moyanhao@outlook.com
 
-***Site:*** [http://a.wiki.yanhao.site](http://a.wiki.yanhao.site)
+***Site:*** [http://wiki.yanhao.org](http://wiki.yanhao.org)
 
 ***Social Links:*** 
 
