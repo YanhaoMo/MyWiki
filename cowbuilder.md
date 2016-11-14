@@ -23,3 +23,11 @@ cowbuilder --update --basepath /var/cache/pbuilder/base-sid.cow
 ```
 
 **注意** cowbuilder 命令需要使用root权限来运行。
+
+## 软件包构建
+创建完基础打包环境之后，就可以使用该环境来进行软件打包：
+```bash
+cowbuilder --build --basepath /var/cache/pbuilder/base-sid.cow *.dsc
+```
+
+最后的一个参数是软件包的 dsc 文件，注意dsc文件必须和准备好的软件源代码在同一目录下。
