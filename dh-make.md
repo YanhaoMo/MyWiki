@@ -13,4 +13,6 @@ dh_make 读取一写些环境变量来调整自己的行为：
 
 # 主要参数
 
-* -c --copyright 
+* -c --copyright 指定软件包使用的许可证类型，可选的有 gpl, gpl2, gpl3, lgpl, lgpl2 lgpl3, artistic, apache, bsd, mit 和 custom
+* -n --native 创建 3.0(native) 格式的软件包
+* -f --file 指定源代码包的位置
