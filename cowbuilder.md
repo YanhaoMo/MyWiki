@@ -16,4 +16,10 @@ cowbuilder --create --distribution sid --basepath /var/cache/pbuilder/base-sid.c
 * --distribution 表示该环境所对应的代号(codename)
 * --basepath 表示该基础环境的位置，注意该参数是一个目录
 * --mirror 表示本次构建基础环境所使用的源站地址
-* 
+
+创建完该基础环境，以后如果需要更新该环境，直接执行一下命令就可以了
+```bash
+cowbuilder --update --basepath /var/cache/pbuilder/base-sid.cow
+```
+
+**注意** cowbuilder 命令需要使用root权限来运行。
