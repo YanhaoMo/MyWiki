@@ -11,3 +11,6 @@ dh_make 读取一写些环境变量来调整自己的行为：
 * DEBEMAIL 打包者的 email 地址
 * DEBFULLNAME 打包这的名字
 
+# 主要参数
+
+* -c --copyright 
