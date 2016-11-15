@@ -23,6 +23,7 @@ sbuild-update -udcar unstable-$arch
 ```
 
 # 使用sbuild构建软件包
+### 构建本地软件包
 ```bash
 sbuild -d kui *.dsc
 ```
