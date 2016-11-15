@@ -16,3 +16,13 @@ sbuild-update --keygen
 sudo sbuild-adduser $LOGNAME
 sbuild-createchroot --include=gnupg,ccache sid /srv/chroot/unstable-amd64-sbuild http://httpredir.debian.org/debian
 ```
+
+## 更新基础chroot环境
+```bash
+sbuild-update -udcar unstable-$arch
+```
+
+# 使用sbuild构建软件包
+```bash
+sbuild -d kui *.dsc
+```
