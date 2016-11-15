@@ -27,3 +27,12 @@ sbuild-update -udcar unstable-$arch
 ```bash
 sbuild -d kui *.dsc
 ```
+
+### 构建源里的软件包
+```bash
+sbuild -d kui PACKAGENAME
+```
+此操作会将自动下载软件源里的源代码，然后尝试进行构建。
+
+注意，在jessie之前版本中包含的sbuild在执行此操作时需要保证参数形式为 packagename_version，
+jessie 之后的版本无此要求，当省略 version 部分时，sbuild将自动尝试最新版的软件源代码。
