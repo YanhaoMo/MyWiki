@@ -84,3 +84,6 @@ esac
 ```
 包含这几行的主要目的是用来确保脚本能以一定的顺序执行，比如你需要确保这个脚本在执行之前，
 lvm hook脚本先被执行，那么你需要将`PREREQ=""`替换为`PREREQ="lvm"`
+
+/usr/share/initramfs-tools/hook-functions 脚本提供了许多在写 hook 脚本时很有用的函数，
+具体信息可以参考 man initramfs-tools
