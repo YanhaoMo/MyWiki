@@ -136,3 +136,68 @@ esac
 那么在每次系统启动时候你都会被要求输入一个密码来对系统盘进行解密，然后才能正常进入系统。
 这么做是处于安全的角度来考虑，但是每次开机都输入两次密码（一次解密硬盘，一次用户密码）
 会让人觉得非常繁琐，因此我们可以对 initramfs 动一些小手脚，让它来帮我们自动完成分区的解密。
+
+首先需要创建一个 hook scripts，位于 /etc/initramfs-tools/hooks 目录下，
+```bash
+#!/bin/sh
+PREREQ=""
+prereqs() {
+  echo "$PREREQ"
+}
+case "$1" in
+  prereqs)
+    prereqs
+    exit 0
+  ;;
+esac
+. "${CONFDIR}/initramfs.conf"
+. /usr/share/initramfs-tools/hook-functions
+if [ ! -f "${DESTDIR}/lib/cryptsetup/scripts/loadkeyfile.sh" ]; then
+  if [ ! -d "${DESTDIR}/lib/cryptsetup/scripts" ]; then
+  mkdir -p "${DESTDIR}/lib/cryptsetup/scripts"
+  fi
+  cp /lib/cryptsetup/scripts/loadkeyfile.sh ${DESTDIR}/lib/cryptsetup/scripts/
+fi
+if [ ! -d "${DESTDIR}/root/" ]; then
+  mkdir -p ${DESTDIR}/root/
+fi
+cp /root/keyfile ${DESTDIR}/root/
+```
+其中 keyfile 是你用来加密系统分区的二进制文件，以上 hook script 的作用是将该 keyfile
+和用来进行分区解密的脚本放入 initramsf 中，
+
+然后创建 loadkeyfile.sh 脚本，
+```bash
+#!/bin/busybox ash
+
+if [ -f /dev/sdb1 ]; then
+  echo "mount the divece containing keyfile ..."
+  mount /dev/sdb1 /root/key 2> /dev/null
+fi
+
+KEY="${1}"
+if [ -f "${KEY}" ]; then
+  cat "${KEY}"
+else
+  echo "FAILED to find suitable USB keychain ..." >&2
+  echo -n "Try to enter your password: " >&2
+  read -s -r PASSWD < /dev/console
+  echo -n "$PASSWD"
+fi
+
+if [ -f /dev/sdb1 ]; then
+  umount /ev/sdb1 2> /dev/null
+fi
+```
+
+需要修改一下 /etc/crypttab 文件，改为为如下内容：
+```bash
+sda2_crypt UUID=563edceb-392c-49f6-9ace-e9b8a6b418d2 /root/key/keyfile luks,keyscript=/lib/cryptsetup/scripts/loadkeyfile.sh
+```
+
+最后，重新生成 initramfs 
+```bash
+sudo update-initramfs -u -k all
+```
+
+重启之后，initramfs 就能自动解密系统分区了！
