@@ -59,3 +59,28 @@ modules 文件中定义了在构建 initramfs 时将会被包含的内核模块�
 
 注意: 在使用`update-initramfs`时，`-k all`命令会忽略 modules 文件而默认将所有内核模块包含到
 initramfs 中。
+
+## hooks/
+可以在 hooks/ 目录下添加自定义的脚本，该脚本在`mkinitramfs`命令执行时会被自动调用，
+创建的自定义脚本文件内容需要遵守一定的规则:
+每个脚本文件的起始处必须包含以下几行：
+```bash
+#!/bin/sh
+PREREQ=""
+prereqs()
+{
+   echo "$PREREQ"
+}
+
+case $1 in
+    prereqs)
+        prereqs
+        exit 0
+        ;;
+esac
+
+. /usr/share/initramfs-tools/hook-functions
+ # Begin real processing below this line
+```
+包含这几行的主要目的是用来确保脚本能以一定的顺序执行，比如你需要确保这个脚本在执行之前，
+lvm hook脚本先被执行，那么你需要将`PREREQ=""`替换为`PREREQ="lvm"`
