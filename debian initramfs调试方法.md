@@ -101,3 +101,20 @@ scripts/ 下有很多子目录，这些子目录分别代表了 initramfs 执行
 - local-bottom 或者 nfs-bottom 当真正的 rootfs 被正确挂载后被调用
 - init-bottom 这个子目录下的脚本在最后被执行，相应的脚本执行完成之后，sysfs 和 procfs 将被 真正的 rootfs 下，
 系统控制权将被移交到真正 rootfs 下的 /sbin/init ，initramfs 中的 udev 也将停止运行。
+
+在上述子目录下创建的自定义脚本如果想要使其依据一定的顺序来执行，也需要在自定义脚本之前添加 hooks scripts 相似的头部
+```bash
+#!/bin/sh
+PREREQ=""
+prereqs()
+{
+   echo "$PREREQ"
+}
+
+case $1 in
+    prereqs)
+        prereqs
+        exit 0
+        ;;
+esac
+```
