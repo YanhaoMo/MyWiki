@@ -32,6 +32,7 @@ rootfs 来挂载，挂载之后，会启动1号用户空间程序 /init ,接下�
 ## 与真正的 rootfs 的不同
 可以看到，initramfs 是系统启动时第一个被挂载的 rootfs，但是它与真正的 rootfs 有很多不同，
 下面是一些总结：
+
 - initramfs 是完全存在于内存中的一个内存文件系统，而真正的 rootfs 往往都是存在于硬盘上的硬盘文件系统
 - initramfs 在体积上做了很多裁剪，包括使用适合嵌入式设备的klibc和busybox来替换正真系统中的glibc和许多应用
 - 内核会以 pid1 启动 initramfs 上的 /init 而在真正的系统上启动的是 /sbin/init
