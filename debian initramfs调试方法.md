@@ -53,6 +53,9 @@ $ cd /etc/initramfs-tools
 $ ls
 conf.d/ hooks/ initramfs.conf  modules  scripts/ update-initramfs.conf
 ```
+如果要对 initramfs 进行定制修改，需要对 hooks 和 scripts 目录下的文件和 modules 进行操作，
+modules 文件中定义了在构建 initramfs 时将会被包含的内核模块，每个模块占用一行，可以使用模块参数，
+`#` 开头的行为注释行。
 
-下面分别对该目录下的配置文件进行介绍：
-## conf.d
+注意: 在使用`update-initramfs`时，`-k all`命令会忽略 modules 文件而默认将所有内核模块包含到
+initramfs 中。
