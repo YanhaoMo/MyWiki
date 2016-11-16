@@ -118,3 +118,13 @@ case $1 in
         ;;
 esac
 ```
+
+## 调试 initramfs
+1. 进入 rescue shell
+在修改了 hooks scripts 和 boot scripts 之后，如果想要进一步确认文件和功能的正确性，
+可以通过在添加`break=`内核启动参数来使 initramfs 在特定的阶段暂停执行，
+并且提供一个命令行环境，此时你可以通过该命令行环境来检查 initramfs 中的各项是否正常。
+
+2. debug log
+在内核启动时添加`debug`启动参数，initramfs 会输出一个详细的log文件，
+并将其保存在 /run/initramfs/initramfs.debug 中，可以通过查阅该文件来定位问题。
