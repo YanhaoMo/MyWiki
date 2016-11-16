@@ -36,3 +36,9 @@ rootfs 来挂载，挂载之后，会启动1号用户空间程序 /init ,接下�
 - initramfs 是完全存在于内存中的一个内存文件系统，而真正的 rootfs 往往都是存在于硬盘上的硬盘文件系统
 - initramfs 在体积上做了很多裁剪，包括使用适合嵌入式设备的klibc和busybox来替换正真系统中的glibc和许多应用
 - 内核会以 pid1 启动 initramfs 上的 /init 而在真正的系统上启动的是 /sbin/init
+
+# 修改 initramfs
+前面说了，debian 中的 initramfs 主要是 initramfs-tools 在管理，因此在修改调试 initramfs 时，
+最好还是能直接使用 initramfs-tools 提供的现成的方法来实现。当然，如果发现有些地方直接使用
+initramfs-tools，那此时可以考虑修改 initramfs-tools 的脚本来实现想要的功能，
+但是一般不要尝试完全手工去产生一个 initramfs 文档。
