@@ -42,3 +42,14 @@ rootfs 来挂载，挂载之后，会启动1号用户空间程序 /init ,接下�
 最好还是能直接使用 initramfs-tools 提供的现成的方法来实现。当然，如果发现有些地方直接使用
 initramfs-tools，那此时可以考虑修改 initramfs-tools 的脚本来实现想要的功能，
 但是一般不要尝试完全手工去产生一个 initramfs 文档。
+
+## 安装 initramfs-tools
+initramfs-tools 是 debian 系统自带的工具，所以不需要手动安装。
+
+## 配置文件
+initramfs-tools 的配置文件位于 /etc/initramfs-tools 目录下，进入该目录查看一下内容：
+```bash
+$ cd /etc/initramfs-tools
+$ ls
+conf.d/ hooks/ initramfs.conf  modules  scripts/ update-initramfs.conf
+```
