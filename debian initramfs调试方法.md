@@ -53,3 +53,6 @@ $ cd /etc/initramfs-tools
 $ ls
 conf.d/ hooks/ initramfs.conf  modules  scripts/ update-initramfs.conf
 ```
+
+下面分别对该目录下的配置文件进行介绍：
+## conf.d
