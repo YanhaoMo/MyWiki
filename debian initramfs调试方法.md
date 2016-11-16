@@ -93,11 +93,11 @@ scripts/ 下有很多子目录，这些子目录分别代表了 initramfs 执行
 可分别在这些子目录下创建自定义的脚本，在 initramfs 被挂载后，自定义脚本会在相应的阶段被执行，
 从而达到定制 initramfs 行为的目的。
 
-- init-top 这个目录下的脚本在 initramfs 挂载了 sysfs 和 procfs 后将首先被调用，
-- 这个阶段也会调用 udev 脚本来初始化 /dev 目录下的设备文件。
+- init-top 这个目录下的脚本在 initramfs 挂载了 sysfs 和 procfs 后将首先被调用，这个阶段也会调用 udev 脚本来初始化 /dev 目录下的设备文件。
 - init-premount 当 hooks 脚本和 /etc/initramfs-tools/modules 文件中指定的内核模块加载后被调用。
 - local-top 或者 nfs-top 这些脚本被调用后，真正的 rootfs 此时已经可见或者 nfs rootfs已经可用。
-- local-block 这个子目录下的脚本会和相应的块设备文件一起被调用，之后应该可以正确识别相应的块设备文件，
-- 如果 local-top 或者 local-block 调用失败，则相应的脚本会被定期调用重试。
+- local-block 这个子目录下的脚本会和相应的块设备文件一起被调用，之后应该可以正确识别相应的块设备文件，如果 local-top 或者 local-block 调用失败，则相应的脚本会被定期调用重试。
 - local-premount 或者 nfs-premount 这两个子目录下的脚本在真正的 rootfs 的一切状态都已被验证后被调用。
-- 
+- local-bottom 或者 nfs-bottom 当真正的 rootfs 被正确挂载后被调用
+- init-bottom 这个子目录下的脚本在最后被执行，相应的脚本执行完成之后，sysfs 和 procfs 将被 真正的 rootfs 下，
+系统控制权将被移交到真正 rootfs 下的 /sbin/init ，initramfs 中的 udev 也将停止运行。
