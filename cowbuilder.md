@@ -14,7 +14,7 @@ cowbuilder --create --distribution sid --basepath /var/cache/pbuilder/base-sid.c
 
 * --create 表示要从头开始创建一个新的基础环境，你可以创建很多基础环境，比如为debian的三个分支分别创建不同的基础环境
 * --distribution 表示该环境所对应的代号(codename)
-* --basepath 表示该基础环境的位置，注意该参数是一个目录
+* --basepath 表示该基础环境的位置，注意该参数是一个目录(不必事先创建)
 * --mirror 表示本次构建基础环境所使用的源站地址
 
 创建完该基础环境，以后如果需要更新该环境，直接执行一下命令就可以了
