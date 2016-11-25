@@ -1,3 +1,6 @@
+---
+title: debian 系发行版 initramfs 调试方法
+---
 # 简介
 在进行 debian 系统开发时，如果开发工作涉及对 initramfs 定制修改，
 就需要对 debian 的 initramfs 有一个详细的了解。
