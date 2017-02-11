@@ -7,6 +7,24 @@
 不过好在Vundle已经很方便了，唯一的问题是它需要你手动安装。
 安装方法也很简单，Vundle的github主页上有详细的介绍。
 
+下面是与vim的界面相关的插件：
+
+这些插件主要控制vim的一下几个方面，我把他们分类列出来：
+
+* 主题配色， 其实这类插件也顺便提供了常用编程语言的语法高亮的主题： monokai rainbow-parenthess.vim
+* 状态栏 美化并提供了很多信息显示vim的状态栏上 vim-airline
+* 文件管理器 给vim提供了一个简单的文件管理器 nerdtree
+* git支持 或者称作版本控制支持，这个功能在写代码时是必要的 vim-gitgutter fugitive
+* 括号的自动补全 这是个比较小但是在代码中非常重要的功能，很奇怪这种功能vim为什么没有内置 auto-pairs
+* 代码的自动注释  nerdcommenter
+* 最近打开文件列表 mru
+* 代码的自动补全 难以想象如果一个代码编辑器缺少了代码自动补全会怎么样 YouCompeleteMe Ultisnips vim-snippets
+* 显示代码的结构 这个插件我用的比较少，但是久负盛名 tagbar
+* 静态语法检查 syntastic
+
+* 编辑增强 这类插件可以进一步提高
+
+
 # .vimrc
 
 ```vim
