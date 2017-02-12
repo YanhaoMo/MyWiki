@@ -4,6 +4,8 @@ cowbuilder 是 debian 官方提供的一个软件打包工具，它的作用是�
 使得软件打包不会弄乱你的机器实际的运行环境，其次，这样做有助于检查软件包的依赖关系是否正确，
 因为 cowbuilder 创建出的独立环境通常是一个最小化环境，此时如果写错了依赖，在 cowbuilder 打包时就立刻能发现。
 
+cowbuilder和pbuilder的使用方式差不多，很多参数也都通用，实际上，可以把cowbuilder看成一个cow版的pbuilder
+
 # 安装
 ```bash
 sudo apt install cowbuilder
