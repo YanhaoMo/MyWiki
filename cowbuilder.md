@@ -36,3 +36,5 @@ cowbuilder --build --basepath /var/cache/pbuilder/base-sid.cow *.dsc
 ```
 
 最后的一个参数是软件包的 dsc 文件，注意dsc文件必须和准备好的软件源代码在同一目录下。
+
+关于如何从源代码快速构建出一个可用的dsc源码包，请参考[这儿](https://hosiet.me/blog/2016/07/24/fast-preparation-of-a-source-only-upload-for-debian/)
