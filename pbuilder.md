@@ -16,3 +16,8 @@ pbuilder create --basetgz ./base.tgz --distribution sid --mirror http://mirrors.
 分别介绍一下上面的几个参数：  
 * `--basetgz` 指定存储这个基础环境的文件，这个基础环境被存储为一个压缩文件
 * `--buildresult` 指定用这个基础环境创建的deb包等文件最后会被存储到哪儿，默认是`/var/cache/pbuilder/result/`
+
+# 构建一个deb包
+```bash
+pubilder build dsh_*dsc
+```
