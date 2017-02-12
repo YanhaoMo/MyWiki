@@ -8,9 +8,9 @@ tac: no
 
 ***Tags:*** CS, Open Source, Linux, Python, Web development
 
-***E-mail:*** moyanhao@outlook.com, moyanhao@deepin.com
+***E-mail:*** moyanhao@outlook.com, yanhaocs@gmail.com, moyanhao@deepin.com
 
-***Site:*** [http://wiki.yanhao.org](http://wiki.yanhao.org)
+***Site:*** [http://wiki.yanhao.org](http://wiki.yanhao.org) [http://blog.yanhao.org](http://blog.yanhao.org)
 
 ***Social Links:*** 
 
