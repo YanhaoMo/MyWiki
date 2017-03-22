@@ -31,6 +31,12 @@ package-indices:
 stack setup
 ```
 
+ghci  
+使用`stack ghci`来启动ghci，为防止多次import导致prompt过长，可以执行以下命令来设置固定的提示符：
+```sh
+:set prompt "ghci> "
+```
+
 参考：
 https://mirror.tuna.tsinghua.edu.cn/help/stackage/  
 https://mirrors.tuna.tsinghua.edu.cn/help/hackage/
