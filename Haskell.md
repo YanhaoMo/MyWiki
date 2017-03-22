@@ -16,3 +16,12 @@ urls:
 ```
 
 可以先执行一次 stack 命令使其自动生成相应的配置文件然后再进行修改
+
+修改hackage配置到tuna的源，同样在上面的配置文件中添加如下行
+
+```
+package-indices:
+  - name: Tsinghua
+    download-prefix: http://mirrors.tuna.tsinghua.edu.cn/hackage/package/
+    http: http://mirrors.tuna.tsinghua.edu.cn/hackage/00-index.tar.gz
+```
