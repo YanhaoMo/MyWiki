@@ -1,7 +1,7 @@
 搭建Debian上的haskell开发环境：
 
 ```sh
-apt install ghc haskell-stack
+apt install haskell-stack
 ```
 
 修改stack的配置文件使其使用tuna的源：
@@ -26,6 +26,10 @@ package-indices:
     http: http://mirrors.tuna.tsinghua.edu.cn/hackage/00-index.tar.gz
 ```
 
+使用stack来安装ghc编译器
+```
+stack setup
+```
 
 参考：
 https://mirror.tuna.tsinghua.edu.cn/help/stackage/  
