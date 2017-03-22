@@ -25,3 +25,8 @@ package-indices:
     download-prefix: http://mirrors.tuna.tsinghua.edu.cn/hackage/package/
     http: http://mirrors.tuna.tsinghua.edu.cn/hackage/00-index.tar.gz
 ```
+
+
+参考：
+https://mirror.tuna.tsinghua.edu.cn/help/stackage/  
+https://mirrors.tuna.tsinghua.edu.cn/help/hackage/
