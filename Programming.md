@@ -1,8 +1,7 @@
 # 代码规范
 [C语言代码规范]()
 
-[Haskell]()
-
-[Rust]()
-
-[php]()
+- [Haskell]()
+- [Rust]()
+- [php]()
+- [ruby]()
