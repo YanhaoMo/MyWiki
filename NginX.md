@@ -1,8 +1,8 @@
 # 安装
-debian上的nginx有三个版本，不同版本之间的差异可以在[这儿](https://wiki.debian.org/Nginx)找到。
-
+debian上的nginx有三个版本，不同版本之间的差异可以在[这儿](https://wiki.debian.org/Nginx)找到。  
+当指定安装`nignx`时会默认安装`nginx-full`版本。
 ```
-apt update && apt install nginx-extra
+apt update && apt install nginx
 ```
 
 # 安装php
