@@ -1,0 +1,15 @@
+```
+server {
+    listen 80 default_server;
+    root /var/www;
+    index index.php index.html;
+    server_name example.com;
+    location / {
+        try_files $uri $uri/ = 404;
+    }
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+    }
+}
+```
