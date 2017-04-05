@@ -1,3 +1,17 @@
+# 安装
+debian上的nginx有三个版本，不同版本之间的差异可以在[这儿](https://wiki.debian.org/Nginx)找到。
+
+```
+apt update && apt install nginx-extra
+```
+
+# 安装php
+```
+apt install php php-fpm
+```
+
+# 配置
+
 ```
 server {
     listen 80 default_server;
