@@ -29,3 +29,12 @@ composer global require "laravel/installer"
 ```
 
 修改PATH变量使之包含可执行文件laravel所在的目录。
+
+#安装mariadb
+```
+apt install mariadb-server mariadb-client
+```
+初始化mariadb
+```
+mysql_secure_installation
+```
