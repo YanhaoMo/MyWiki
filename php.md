@@ -1,6 +1,6 @@
 安装lamp
 ```
-# apt install nginx-extra php php-fpm 
+# apt install nginx-extras php php-fpm 
 ```
 
 安装php依赖管理器
