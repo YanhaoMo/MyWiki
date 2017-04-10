@@ -1,3 +1,11 @@
+# 搭建rust开发环境
+安装rust编译器与包管理器
+```
+# apt install rustc cargo
+```
+
+配置cargo使用ustc的源：
+
 在 $HOME/.cargo/config 中添加如下内容：
 
 ```
