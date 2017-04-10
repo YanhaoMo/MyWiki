@@ -15,3 +15,8 @@ replace-with = 'ustc'
 [source.ustc]
 registry = "git://mirrors.ustc.edu.cn/crates.io-index"
 ```
+
+创建一个新的rust工程
+```
+$ cargo new hello_world --bin
+```
