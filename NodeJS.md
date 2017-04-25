@@ -2,7 +2,8 @@
 
 步骤如下：
 
+以root用户执行下面的命令
 ```
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-sudo apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_7.x | bash -
+apt-get install -y nodejs
 ```
