@@ -20,3 +20,8 @@
 ```
 bundle config mirror.https://rubygems.org https://gems.ruby-china.org
 ```
+
+## 安装ror
+```
+gem install rails
+```
