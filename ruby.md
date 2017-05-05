@@ -1,7 +1,7 @@
 安装
 ===
 ```
-# apt install ruby ruby-dev zlib1g-dev //后两个安装rails需要
+# apt install ruby
 ```
 
 这儿安装了ruby编译器以及包管理器gem.
@@ -23,5 +23,6 @@ bundle config mirror.https://rubygems.org https://gems.ruby-china.org
 
 ## 安装ror
 ```
+# apt install ruby-dev zlib1g-dev sqlite3 libsqlite3-dev
 # gem install rails
 ```
