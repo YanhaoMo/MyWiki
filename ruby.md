@@ -1,7 +1,7 @@
 安装
 ===
 ```
-# apt install ruby
+# apt install ruby ruby-dev zlib1g-dev //后两个安装rails需要
 ```
 
 这儿安装了ruby编译器以及包管理器gem.
