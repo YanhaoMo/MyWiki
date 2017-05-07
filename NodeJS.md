@@ -20,6 +20,10 @@ npm config set registry https://registry.npm.taobao.org
  npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
+#安装 express 开发环境
+```
+# npm install express-generator -g
+```
 
 # 一些学习js时碰到的问题
 - 既然有了let和const关键字，那么何时还需要var关键字？
