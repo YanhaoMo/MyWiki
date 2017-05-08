@@ -1,6 +1,6 @@
 # 安装解释器和包管理器
 ```
-# apt install python3 python3-pip
+# apt install python3 python3-pip ipyhon3
 ```
 
 ## 更新pip到官方最新（可选）
