@@ -7,6 +7,7 @@
 - [ruby]()
 - [Go]()
 - [NodeJS]()
+- [Python]()
 
 
 语言
