@@ -44,5 +44,7 @@ $ create-react-app new hello
 ```
 mkdir hello && cd hello
 npm init
-npm install --save react react-dom
+npm i -s react react-dom
+npm i -S babel-core babel-preset-es2015 babel-preset-react
+npm i -S webpack babel-loader
 ```
