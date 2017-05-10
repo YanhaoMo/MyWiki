@@ -28,3 +28,21 @@ npm config set registry https://registry.npm.taobao.org
 # 一些学习js时碰到的问题
 - 既然有了let和const关键字，那么何时还需要var关键字？
 - 箭头函数的词法作用域什么意思？
+
+# react开发
+## 使用create-react-app
+```
+# npm install -g create-react-app
+```
+
+创建一个初始开发环境
+```
+$ create-react-app new hello
+```
+
+## 手动布置react开发环境
+```
+mkdir hello && cd hello
+npm init
+npm install --save react react-dom
+```
