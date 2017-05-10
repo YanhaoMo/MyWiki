@@ -45,7 +45,7 @@ $ create-react-app new hello
 mkdir hello && cd hello
 npm init
 npm i -s react react-dom
-npm i -S babel-core babel-preset-es2015 babel-preset-react babel-preset-env
+npm i -S babel-core babel-preset-react babel-preset-env
 npm i -S webpack babel-loader webpack-dev-server
 ```
 
@@ -53,7 +53,7 @@ npm i -S webpack babel-loader webpack-dev-server
 创建.babelrc文件，写入如下内容
 ```
 {
-    "presets": ["env", "es2015", "react"]
+    "presets": ["env", "react"]
 }
 ```
 
