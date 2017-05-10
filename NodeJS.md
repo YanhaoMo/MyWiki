@@ -56,3 +56,35 @@ npm i -S webpack babel-loader
     "presets": ["env", "es2015", "react"]
 }
 ```
+
+## 配置webpack
+下面是一个webpack配置的例子：
+创建文件`webpack.config.js`,写入如下内容：
+```
+var path = require('path');
+
+var BUILD_DIR = path.resolve(__dirname, 'public');
+var APP_DIR = path.resolve(__dirname, 'src');
+
+var config = {
+    entry: APP_DIR + '/index.jsx',
+    output: {
+        path: BUILD_DIR,
+        filename: 'bundle.js'
+    },
+    module : {
+        rules : [
+        {
+            test : /\.jsx?/,
+            include : APP_DIR,
+            loader : 'babel-loader'
+        }
+        ]
+    },
+    devServer : {
+        contentBase: path.join(__dirname, "/public"),
+        compress: true,
+        port: 8080
+    }
+};
+```
