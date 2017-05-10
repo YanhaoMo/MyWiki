@@ -46,7 +46,7 @@ mkdir hello && cd hello
 npm init
 npm i -s react react-dom
 npm i -S babel-core babel-preset-es2015 babel-preset-react babel-preset-env
-npm i -S webpack babel-loader
+npm i -S webpack babel-loader webpack-dev-server
 ```
 
 ## 配置babel
