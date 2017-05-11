@@ -82,9 +82,11 @@ var config = {
         ]
     },
     devServer : {
-        contentBase: path.join(__dirname, "/public"),
+        contentBase: path.resolve(__dirname, "public"),
         compress: true,
         port: 8080
     }
 };
+
+module.exports = config;
 ```
