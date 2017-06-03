@@ -53,3 +53,6 @@ PS1="(chroot $PS1)"
 ```bash
 sudo echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 ```
+
+# debian安装virt-manaer
+之后需要将用户加入libvirt组
