@@ -26,6 +26,11 @@ logFile = /var/log/polipo/polipo.log
 proxyPort = 1081
 ```
 
+重启polipo服务
+```
+# systemctl restart polipo
+```
+
 之后使用
 ```
 env https_proxy=127.0.0.1:1081 go get
