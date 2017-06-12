@@ -37,3 +37,9 @@ env https_proxy=127.0.0.1:1081 go get
 ```
 
 来安装包就可以了
+
+还可以在shell的配置文件中加入这一行：
+```
+alias envgo="env https_proxy=127.0.0.1:1081 go"
+```
+这样就可以通过envgo替代go来安装包。
