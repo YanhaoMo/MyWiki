@@ -1,15 +1,18 @@
 # 代码规范
 [C语言代码规范]()
 
-- [Haskell]()
-- [Rust]()
-- [php]()
-- [ruby]()
-- [Go]()
-- [NodeJS]()
-- [Python]()
 - [C]()
 - [CPP]()
+- [Go]()
+- [Python]()
+- [NodeJS]()
+- [ruby]()
+- [Rust]()
+- [R]()
+- [Java]()
+- [php]()
+
+
 
 语言
 ===
